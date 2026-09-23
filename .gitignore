@@ -1,0 +1,7 @@
+# 本地/编辑器产物
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+__pycache__/

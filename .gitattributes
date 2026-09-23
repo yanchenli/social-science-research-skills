@@ -1,0 +1,11 @@
+# 统一换行符为 LF
+* text=auto eol=lf
+
+*.md text
+*.txt text
+*.json text
+*.yaml text
+*.yml text
+*.py text
+
+*.skill binary
