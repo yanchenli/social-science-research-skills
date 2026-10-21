@@ -177,7 +177,13 @@
 |---|---|
 | Claude Code | `~/.claude/skills/` |
 | WorkBuddy | `~/.workbuddy-ai/skills/` |
+| DeepSeek Harness（DSH） | `~/.dsh/skills/`（项目级用 `<项目根>/.dsh/skills/`） |
 | 其他兼容 Agent Skills 规范的环境 | 参见该环境的文档 |
+
+> **DSH 的两个注意点**：它只扫描**一级**目录，`skills/<技能名>/SKILL.md` 正是它要求的结构，
+> 直接整目录复制即可；技能名必须保持 kebab-case（本仓库所有技能目录名都是）。
+> 项目级目录（`<项目根>/.dsh/skills/`）优先级高于用户级（`~/.dsh/skills/`），
+> 同名技能以后者被前者覆盖。
 
 ```bash
 # 例：安装全部 14 个技能到 Claude Code

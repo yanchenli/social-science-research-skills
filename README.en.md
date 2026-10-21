@@ -195,7 +195,14 @@ into your agent environment's skill directory:
 |---|---|
 | Claude Code | `~/.claude/skills/` |
 | WorkBuddy | `~/.workbuddy-ai/skills/` |
+| DeepSeek Harness (DSH) | `~/.dsh/skills/` (project-level: `<project root>/.dsh/skills/`) |
 | Other Agent Skills-compatible environments | see that environment's documentation |
+
+> **Two things to know about DSH**: it scans only **one level** of the skills
+> directory, and `skills/<skill-name>/SKILL.md` is exactly the shape it expects —
+> copy the directories wholesale. Skill names must stay kebab-case (every directory
+> here already is). A project-level directory takes precedence over the user-level
+> one, so a same-named skill in `<project>/.dsh/skills/` shadows `~/.dsh/skills/`.
 
 ```bash
 # Install all 14 skills into Claude Code

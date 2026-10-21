@@ -4,6 +4,8 @@
 
 **版本**：1.0.0 ｜ **适用**：商科 MS/PhD/DBA 学生及教师 ｜ **规模**：SKILL.md + 10 个 references + 6 个脚本 + 1 个工作簿模板
 
+**中文** | [English](README.en.md)
+
 ---
 
 ## 它解决什么问题

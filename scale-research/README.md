@@ -4,6 +4,8 @@
 
 **版本**：1.0.0 ｜ **适用**：管理学、营销学、人力资源 MS/PhD ｜ **规模**：SKILL.md + 3 个 references
 
+**中文** | [English](README.en.md)
+
 ---
 
 ## 它解决什么问题
