@@ -8,6 +8,8 @@
 > supervisors in management, marketing, consumer behaviour and organizational
 > behaviour.
 
+**中文** | [English](README.en.md)
+
 面向**管理学、营销学、消费者行为学、组织行为学**方向的研究生（MS / PhD / DBA）
 与指导教师的 AI 方法学助手技能包。14 个技能覆盖从选题、文献、设计、数据准备、
 测量、分析、写作到核查、评审与审稿回应的完整研究链路。
