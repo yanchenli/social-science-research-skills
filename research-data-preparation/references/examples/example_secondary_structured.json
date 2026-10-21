@@ -1,0 +1,58 @@
+{
+  "spec_version": "1.0",
+  "study": {
+    "title": "Category breadth and later cross-category purchasing (illustrative example)",
+    "research_question": "Does a customer's earlier category breadth predict expansion into new categories in the following period?",
+    "target_population": "Retail customers of one online fashion retailer",
+    "unit_of_analysis": "customer",
+    "design_purpose": "confirmatory",
+    "data_path": "secondary_structured",
+    "estimand": "Difference in the number of newly purchased categories in months 7-12 between customers with higher vs lower category breadth in months 1-6, among customers active in months 1-6."
+  },
+  "data_exposure": {
+    "level": "E2",
+    "date": "2026-10-03",
+    "description": "Read the data documentation and ran a structure-level profile with the outcome variable blinded. No distributions or trends of the outcome were viewed.",
+    "log_ref": "profile_out/exposure_log.jsonl"
+  },
+  "constructs": [
+    {"id": "C1", "name": "Category breadth", "definition": "Number of distinct product categories a customer bought from in the history window", "indicators": ["V_breadth"], "evidence_status": "researcher_stated"},
+    {"id": "C2", "name": "Category expansion", "definition": "Number of categories bought in the outcome window that the customer had not bought in the history window", "indicators": ["V_new_cats"], "evidence_status": "researcher_stated"}
+  ],
+  "variables": [
+    {"id": "V_cust", "label": "Customer id", "role": "id", "type": "id", "source_field": "customer_id", "decision_status": "pre_locked", "evidence_status": "profile_verified"},
+    {"id": "V_date", "label": "Order date", "role": "time", "type": "date", "source_field": "order_date", "decision_status": "pre_locked", "evidence_status": "profile_verified"},
+    {"id": "V_breadth", "label": "Category breadth (history window)", "role": "predictor", "type": "continuous", "unit": "count", "source_field": "product_category", "derivation": "count of distinct product_category per customer in months 1-6", "decision_status": "pre_locked", "evidence_status": "needs_verification"},
+    {"id": "V_new_cats", "label": "New categories (outcome window)", "role": "outcome", "type": "continuous", "unit": "count", "source_field": "product_category", "derivation": "count of categories in months 7-12 not bought in months 1-6", "decision_status": "pre_locked", "evidence_status": "needs_verification"},
+    {"id": "V_total_cats", "label": "Total categories available", "role": "covariate", "type": "continuous", "unit": "count", "source_field": "product_category", "derivation": "number of categories in the catalogue; used to check the mechanical ceiling on expansion", "decision_status": "pre_locked", "evidence_status": "needs_verification"}
+  ],
+  "sample_rules": {
+    "frame": "All customers with at least one order in months 1-6 of the study window",
+    "inclusion": ["at least one order in the history window"],
+    "exclusion": [
+      {"rule": "customers with a single order overall (cannot show expansion)", "decided_before_outcome": true},
+      {"rule": "orders flagged as returned or cancelled", "decided_before_outcome": true}
+    ],
+    "time_window": {"start": "2019-01-01", "end": "2019-12-31", "rationale": "Chosen to end before the 2020 volume drop flagged by the profile; 2020 data reserved and not examined."},
+    "decision_status": "pre_locked"
+  },
+  "analysis_plan": [
+    {"id": "A1", "hypothesis": "H1: higher category breadth predicts more new categories in the outcome window", "model": "Poisson or negative binomial regression of V_new_cats on V_breadth with V_total_cats as covariate; robust SEs", "primary": true, "decision_status": "pre_locked", "notes": "Report the mechanical ceiling check alongside the main estimate."}
+  ],
+  "holdout_or_blinding": {"strategy": "holdout_sample", "details": "2020 data are not examined until the 2019 analysis is finished; they serve as an out-of-time replication."},
+  "governance": {
+    "ethics_approval_status": "unknown",
+    "personal_data": "pseudonymised",
+    "items_needing_human_verification": [
+      "Data use terms of the public dataset (research use, redistribution)",
+      "Whether institutional ethics review or an exemption is required for pseudonymised retail data",
+      "Storage location and retention for the downloaded file"
+    ],
+    "storage_and_retention": "Encrypted local disk; delete raw copy after project end unless terms allow retention."
+  },
+  "readiness": {"status": "ready_if_conditions_met", "conditions": ["Confirm data use terms", "Confirm ethics position", "Verify how product_category was defined and whether it changed over time"]},
+  "decision_log": [
+    {"id": "D1", "date": "2026-10-03", "decision": "End the analysis window before 2020", "basis": "Structure-level profile flagged abnormal monthly record counts in 2020", "status": "locked_after_exposure", "exposure_at_time": "E2"}
+  ],
+  "handoff": {"downstream": [{"skill_or_agent": "quant-data-analysis", "inputs": ["research_data_plan", "data_workbook", "research_data_spec.json"], "status": "ready_after_conditions"}]}
+}

@@ -12,7 +12,7 @@ description: >
   measure a psychological or organizational construct. Even if the request
   seems simple (e.g., "帮我找个量表"), trigger this skill — the structured
   workflow prevents common research errors.
-version: 1.0.0
+version: 1.1.0
 license: CC-BY-4.0
 ---
 
@@ -20,13 +20,13 @@ license: CC-BY-4.0
 
 ## Core Principles (Remind the user at the start)
 
-1. **AI proposes options; the researcher decides.** Never let the AI make final
+1. **AI proposes options; the researcher decides.** Never let AI make final
    judgement calls on construct selection, scale choice, or item wording.
-2. **Triangle verification.** Every piece of bibliographic information the AI
+2. **Triangle verification.** Every piece of bibliographic information AI
    provides (author, year, journal) must be verified in a real database before
    citation.
 3. **Your data, your stats.** Reliability/validity numbers in a thesis must
-   come from the student's own sample — not from the AI's own knowledge.
+   come from the student's own sample — not from AI's knowledge.
 
 ---
 

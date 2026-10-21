@@ -1,0 +1,47 @@
+{
+  "spec_version": "1.0",
+  "study": {
+    "title": "Message framing and purchase intention in an online experiment (illustrative example)",
+    "research_question": "Does gain vs loss framing change purchase intention for a sustainable product, and does environmental involvement moderate it?",
+    "target_population": "Adult online consumers who buy packaged consumer goods",
+    "unit_of_analysis": "participant",
+    "design_purpose": "confirmatory",
+    "data_path": "primary_quant",
+    "estimand": "Mean difference in purchase intention between gain-framed and loss-framed conditions, and how it differs between low and high environmental involvement."
+  },
+  "data_exposure": {"level": "E0", "date": "2026-10-03", "description": "No data collected yet."},
+  "constructs": [
+    {"id": "C1", "name": "Purchase intention", "definition": "Stated likelihood of buying the product", "indicators": ["V_pi"], "evidence_status": "researcher_stated"},
+    {"id": "C2", "name": "Environmental involvement", "definition": "Personal importance of environmental issues", "indicators": ["V_env"], "evidence_status": "researcher_stated"}
+  ],
+  "variables": [
+    {"id": "V_cond", "label": "Framing condition", "role": "predictor", "type": "binary", "source_field": "cond", "derivation": "random assignment: gain=0, loss=1", "decision_status": "pre_locked", "evidence_status": "researcher_stated"},
+    {"id": "V_env", "label": "Environmental involvement (mean of items)", "role": "moderator", "type": "continuous", "unit": "1-7 scale", "source_field": "env1-env4", "derivation": "mean of 4 items, measured before the manipulation", "decision_status": "pre_locked", "evidence_status": "researcher_stated"},
+    {"id": "V_pi", "label": "Purchase intention", "role": "outcome", "type": "continuous", "unit": "1-7 scale", "source_field": "pi1-pi3", "derivation": "mean of 3 items", "decision_status": "pre_locked", "evidence_status": "researcher_stated"},
+    {"id": "V_attn", "label": "Attention check passed", "role": "other", "type": "binary", "source_field": "attn", "derivation": "1 = correct answer", "decision_status": "pre_locked", "evidence_status": "researcher_stated"}
+  ],
+  "sample_rules": {
+    "frame": "Panel respondents screened for buying packaged consumer goods",
+    "inclusion": ["completed all items", "age 18+"],
+    "exclusion": [
+      {"rule": "failed the attention check", "decided_before_outcome": true},
+      {"rule": "completion time under 40% of the pilot median", "decided_before_outcome": true}
+    ],
+    "stopping_rule": "Stop at 300 completed and valid responses per the sample-size plan; no interim looks at the outcome.",
+    "decision_status": "pre_locked"
+  },
+  "analysis_plan": [
+    {"id": "A1", "hypothesis": "H1: loss framing lowers purchase intention relative to gain framing", "model": "Welch t-test / ANOVA on V_pi by V_cond", "primary": true, "decision_status": "pre_locked"},
+    {"id": "A2", "hypothesis": "H2: framing effect is larger at high environmental involvement", "model": "Regression V_pi ~ V_cond * V_env with simple slopes at +/-1 SD", "primary": true, "decision_status": "pre_locked"}
+  ],
+  "holdout_or_blinding": {"strategy": "none", "details": "Experiment with preregistered analysis; no holdout needed."},
+  "governance": {
+    "ethics_approval_status": "pending",
+    "personal_data": "none",
+    "items_needing_human_verification": ["Ethics approval before launch", "Panel provider's data-processing terms", "Participant payment rules"],
+    "storage_and_retention": "Export CSV from the platform; store on encrypted drive."
+  },
+  "readiness": {"status": "ready_if_conditions_met", "conditions": ["Ethics approval granted", "Pilot (n=30) completed; pilot data excluded from the main sample"]},
+  "decision_log": [],
+  "handoff": {"downstream": [{"skill_or_agent": "quant-data-analysis", "inputs": ["research_data_spec.json", "data_workbook"], "status": "after data collection"}]}
+}

@@ -26,7 +26,7 @@ Unlike general translation, questionnaire items must satisfy:
 
 ```
 Step 1 — Forward Translation
-  The AI (or bilingual researcher A) translates EN → ZH
+  AI (or bilingual researcher A) translates EN → ZH
   Goal: meaning equivalence, natural Chinese expression
 
 Step 2 — Independent Back-Translation

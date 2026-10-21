@@ -15,7 +15,7 @@ description: >
   For vague research ideas ("我有个研究想法", "I have a research idea"), engage briefly to
   assess whether they want full experiment design support — do not assume and launch the full
   7-step workflow immediately.
-version: 4.0.0
+version: 4.1.0
 license: CC-BY-4.0
 ---
 

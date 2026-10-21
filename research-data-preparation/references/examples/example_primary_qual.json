@@ -1,0 +1,36 @@
+{
+  "spec_version": "1.0",
+  "study": {
+    "title": "Why consumers join refill-container schemes (illustrative example)",
+    "research_question": "How do consumers make sense of participating in effortful sustainable-packaging behaviours?",
+    "target_population": "Consumers who have used a refill or reuse scheme at least once",
+    "unit_of_analysis": "participant account",
+    "design_purpose": "theory_building",
+    "data_path": "primary_qual"
+  },
+  "data_exposure": {"level": "E0", "date": "2026-10-03", "description": "No interviews conducted yet."},
+  "variables": [
+    {"id": "V_pid", "label": "Participant code", "role": "id", "type": "id", "source_field": "pid", "decision_status": "pre_locked", "evidence_status": "researcher_stated"},
+    {"id": "V_transcript", "label": "Interview transcript", "role": "other", "type": "text", "source_field": "transcript_file", "derivation": "verbatim transcript checked against audio", "decision_status": "pre_locked", "evidence_status": "researcher_stated"}
+  ],
+  "sample_rules": {
+    "frame": "Purposive sample varying in age, frequency of use and household type",
+    "inclusion": ["has used a refill scheme at least once"],
+    "exclusion": [],
+    "stopping_rule": "Sampling continues while new interviews add to the analysis; sufficiency is judged with information power and logged after each interview. No fixed number is promised.",
+    "decision_status": "open"
+  },
+  "analysis_plan": [
+    {"id": "A1", "hypothesis": "Research question guides interpretive coding; no hypotheses to test", "model": "Reflexive thematic analysis (see qualitative-research-methods)", "primary": true, "decision_status": "open", "notes": "Interview guide may be revised after early interviews; every revision is logged."}
+  ],
+  "holdout_or_blinding": {"strategy": "disclosure_only", "details": "Initial interview guide and every later revision are kept with dates; changes are reported."},
+  "governance": {
+    "ethics_approval_status": "pending",
+    "personal_data": "identifiable",
+    "items_needing_human_verification": ["Ethics approval and consent wording", "Where audio is stored and who can access it", "Transcription service terms if one is used", "Translation/transcription plan for interviews in Cantonese or Mandarin"],
+    "storage_and_retention": "Audio deleted after transcript verification; pseudonymised transcripts retained."
+  },
+  "readiness": {"status": "ready_if_conditions_met", "conditions": ["Ethics approval", "Consent form finalised"]},
+  "decision_log": [],
+  "handoff": {"downstream": [{"skill_or_agent": "qualitative-research-methods", "inputs": ["research_data_spec.json", "interview guide"], "status": "after first interviews"}]}
+}

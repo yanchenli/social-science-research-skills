@@ -1,21 +1,7 @@
 ---
-name: academic-writing-assistant
-description: >
-  引导研究者（尤其是商科MS/PhD学生及教师）系统撰写学术论文的Introduction和
-  Literature Review章节，支持中文、英文两种写作模式，最终产出可直接投稿或提交的
-  Word文档（.docx格式）。
-
-  触发场景（满足以下任一条件即应使用本skill）：
-  - 用户提到"写引言"、"写文献综述"、"Introduction"、"Literature Review"、"Lit Review"
-  - 用户上传论文草稿、文献列表、研究提案，要求帮助撰写或改进写作
-  - 用户提到"理论缺口"、"research gap"、"理论基础"、"theoretical framework"
-  - 用户提到"IMRAD结构"、"漏斗式写法"、"funnel approach"
-  - 用户说"我不知道怎么开始写"、"帮我写论文第一章"、"帮我整理文献逻辑"
-  - 用户要求改写、润色、扩展已有的Introduction或Literature Review
-  - 用户提到"投稿"、"期刊论文"、"毕业论文"、"学位论文"并涉及写作任务
-
-  即使用户只是粗略描述研究主题，或者说"帮我把这些文献整理成综述"，也应触发本skill。
-version: 1.0.0
+name: "academic-writing-assistant"
+description: "引导研究者（尤其是商科MS/PhD学生及教师）系统撰写学术论文的Introduction和 Literature Review章节，支持中文、英文两种写作模式，最终产出可直接投稿或提交的 Word文档（.docx格式）。\n触发场景（满足以下任一条件即应使用本skill）： - 用户提到\"写引言\"、\"写文献综述\"、\"Introduction\"、\"Literature Review\"、\"Lit Review\" - 用户上传论文草稿、文献列表、研究提案，要求帮助撰写或改进写作 - 用户提到\"理论缺口\"、\"research gap\"、\"理论基础\"、\"theoretical framework\"，且要的是把它们写进章节 - 用户提到\"IMRAD结构\"、\"漏斗式写法\"、\"funnel approach\" - 用户说\"我不知道怎么开始写\"、\"帮我写论文第一章\"、\"帮我整理文献逻辑\" - 用户要求改写、润色、扩展已有的Introduction或Literature Review - 用户提到\"投稿\"、\"期刊论文\"、\"毕业论文\"、\"学位论文\"并涉及写作任务\n即使用户只是粗略描述研究主题，或者说\"帮我把这些文献整理成综述\"，也应触发本skill。\n分工提示：若用户要做的是写作之前的事——系统梳理一大批文献、诊断研究缺口、判断选题 有没有人做过——应由literature-gap-synthesizer处理，梳理完再回到本skill落笔成文。\n"
+version: 1.1.0
 license: CC-BY-4.0
 ---
 
@@ -282,7 +268,7 @@ license: CC-BY-4.0
 
 ## 阶段6 — 文档生成（.docx输出）
 
-用所在环境提供的文档生成能力生成 `.docx` 文件（如 `python-docx` 库或 `pandoc` 转换；若环境中已有专门的 docx 技能，优先使用它）。下方的「样式规范」「文档结构」「特殊标注规范」三节作为**设计规格**交给它，不要绕过规格自行拼装文档。
+用所在环境提供的文档生成能力（如 `python-docx` 库或 `pandoc` 转换；若环境中已有专门的 docx 技能，优先使用它）生成 `.docx` 文件。下方的「样式规范」「文档结构」「特殊标注规范」三节作为**设计规格**交给它，不要绕过规格自行拼装文档。
 
 ### 样式规范
 

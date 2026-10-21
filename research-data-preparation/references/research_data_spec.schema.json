@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "research_data_spec",
+  "description": "Machine-readable summary of a research data plan. Version 1.0. decision_status says WHEN/HOW a decision was fixed; evidence_status says HOW WELL the information is verified. Neither is a quality grade of the data.",
+  "type": "object",
+  "required": ["spec_version", "study", "data_exposure", "variables", "sample_rules", "analysis_plan", "governance", "readiness", "decision_log"],
+  "properties": {
+    "spec_version": {"type": "string", "enum": ["1.0"]},
+    "study": {
+      "type": "object",
+      "required": ["title", "research_question", "target_population", "unit_of_analysis", "design_purpose", "data_path"],
+      "properties": {
+        "title": {"type": "string"},
+        "research_question": {"type": "string"},
+        "target_population": {"type": "string"},
+        "unit_of_analysis": {"type": "string"},
+        "design_purpose": {"type": "string", "enum": ["confirmatory", "exploratory", "prediction", "measurement_development", "descriptive", "theory_building", "mixed"]},
+        "data_path": {"type": "string", "enum": ["primary_quant", "primary_qual", "secondary_structured", "secondary_digital_trace", "mixed"]},
+        "estimand": {"type": "string", "description": "Plain-language target: who is compared, on what, over what period. Needed for confirmatory explanatory/causal studies."}
+      }
+    },
+    "data_exposure": {
+      "type": "object",
+      "required": ["level", "date", "description"],
+      "properties": {
+        "level": {"type": "string", "enum": ["E0", "E1", "E2", "E3", "E4"], "description": "E0 none; E1 metadata only; E2 structure or limited sample; E3 distributions/descriptives, no hypothesis test; E4 hypothesis-related analysis done. Operational scale of this skill, not a published standard."},
+        "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "description": {"type": "string"},
+        "log_ref": {"type": "string"}
+      }
+    },
+    "constructs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "definition", "indicators"],
+        "properties": {
+          "id": {"type": "string"}, "name": {"type": "string"}, "definition": {"type": "string"},
+          "indicators": {"type": "array", "items": {"type": "string"}, "description": "variable ids"},
+          "evidence_status": {"$ref": "#/definitions/evidence_status"}
+        }
+      }
+    },
+    "variables": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "role", "type", "decision_status", "evidence_status"],
+        "properties": {
+          "id": {"type": "string"}, "label": {"type": "string"},
+          "role": {"type": "string", "enum": ["outcome", "predictor", "moderator", "mediator", "covariate", "id", "time", "other"]},
+          "type": {"type": "string", "enum": ["continuous", "binary", "categorical", "ordinal", "text", "date", "id"]},
+          "unit": {"type": "string"}, "source_field": {"type": "string"}, "derivation": {"type": "string"},
+          "missing_codes": {"type": "string"},
+          "decision_status": {"$ref": "#/definitions/decision_status"},
+          "evidence_status": {"$ref": "#/definitions/evidence_status"}
+        }
+      }
+    },
+    "sample_rules": {
+      "type": "object",
+      "required": ["frame", "inclusion", "exclusion", "decision_status"],
+      "properties": {
+        "frame": {"type": "string"},
+        "inclusion": {"type": "array", "items": {"type": "string"}},
+        "exclusion": {"type": "array", "items": {"type": "object", "required": ["rule", "decided_before_outcome"],
+          "properties": {"rule": {"type": "string"}, "decided_before_outcome": {"type": "boolean"}}}},
+        "time_window": {"type": "object", "properties": {"start": {"type": "string"}, "end": {"type": "string"}, "rationale": {"type": "string"}}},
+        "stopping_rule": {"type": "string", "description": "primary data: when data collection ends, fixed before looking at results"},
+        "decision_status": {"$ref": "#/definitions/decision_status"}
+      }
+    },
+    "analysis_plan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "hypothesis", "model", "primary", "decision_status"],
+        "properties": {
+          "id": {"type": "string"}, "hypothesis": {"type": "string"}, "model": {"type": "string"},
+          "primary": {"type": "boolean"}, "notes": {"type": "string"},
+          "decision_status": {"$ref": "#/definitions/decision_status"}
+        }
+      }
+    },
+    "holdout_or_blinding": {
+      "type": "object",
+      "required": ["strategy"],
+      "properties": {
+        "strategy": {"type": "string", "enum": ["none", "blinded_summary", "holdout_sample", "disclosure_only"]},
+        "details": {"type": "string"}
+      }
+    },
+    "governance": {
+      "type": "object",
+      "required": ["ethics_approval_status", "personal_data", "items_needing_human_verification"],
+      "properties": {
+        "ethics_approval_status": {"type": "string", "enum": ["not_required", "pending", "approved", "unknown"]},
+        "personal_data": {"type": "string", "enum": ["none", "pseudonymised", "identifiable", "unknown"]},
+        "items_needing_human_verification": {"type": "array", "items": {"type": "string"}},
+        "storage_and_retention": {"type": "string"}
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"type": "string", "enum": ["ready", "ready_if_conditions_met", "blocked", "insufficient_evidence"], "description": "Readiness of the research plan/data access, NOT a quality grade of the dataset."},
+        "conditions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "decision_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "date", "decision", "status"],
+        "properties": {
+          "id": {"type": "string"}, "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+          "decision": {"type": "string"}, "basis": {"type": "string"},
+          "status": {"$ref": "#/definitions/decision_status"},
+          "previous": {"type": "string"}, "reason_for_change": {"type": "string"},
+          "exposure_at_time": {"type": "string", "enum": ["E0", "E1", "E2", "E3", "E4"]}
+        }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "downstream": {"type": "array", "items": {"type": "object", "required": ["skill_or_agent", "inputs", "status"],
+          "properties": {"skill_or_agent": {"type": "string"}, "inputs": {"type": "array", "items": {"type": "string"}}, "status": {"type": "string"}}}}
+      }
+    }
+  },
+  "definitions": {
+    "decision_status": {"type": "string", "enum": ["pre_locked", "locked_after_exposure", "data_driven", "open"],
+      "description": "pre_locked: fixed before seeing relevant outcome data; locked_after_exposure: fixed after seeing structure/descriptives but before any hypothesis-related analysis; data_driven: formed after seeing data or results (treat as exploratory); open: not yet decided."},
+    "evidence_status": {"type": "string", "enum": ["researcher_stated", "source_documented", "profile_verified", "needs_verification"],
+      "description": "researcher_stated: the researcher says so; source_documented: confirmed in an official document; profile_verified: confirmed by a data profile; needs_verification: unconfirmed."}
+  }
+}

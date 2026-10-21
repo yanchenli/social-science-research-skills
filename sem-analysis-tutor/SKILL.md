@@ -18,7 +18,7 @@ description: >
   - 用户提到 Q²、Stone-Geisser、Blindfolding、预测相关性（PLS-SEM 语境）
   - 用户上传数据文件并提到潜变量、构念或研究假设
   - 即使用户只说"帮我做定量分析"且有多个构念/潜变量，也应触发本skill
-version: 1.0.0
+version: 1.1.0
 license: CC-BY-4.0
 ---
 
