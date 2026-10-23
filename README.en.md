@@ -1,19 +1,21 @@
 # Social-Science Research Methods — Agent Skill Pack
 
-> Fourteen AI agent skills for social-science research methods — literature gap
-> analysis, experiment design, data preparation, scale development & translation,
-> quantitative analysis, SEM, results reporting, discussion writing, qualitative
-> methods, citation auditing, manuscript and grant reviewing, and reviewer
-> response. Bilingual (English / 中文). Built for graduate students and
-> supervisors in management, marketing, consumer behaviour and organizational
-> behaviour.
+> Seventeen AI agent skills for social-science research methods — variable
+> extraction from papers, literature gap analysis, systematic review and
+> meta-analysis, experiment design, data preparation, scale development &
+> translation, quantitative analysis, SEM, results reporting, discussion
+> writing, qualitative methods, citation auditing, manuscript and grant
+> reviewing, journal selection, and reviewer response. Bilingual
+> (English / 中文). Built for graduate students and supervisors in management,
+> marketing, consumer behaviour and organizational behaviour.
 
 **English** | [中文](README.md)
 
 An AI methodology assistant skill pack for graduate students (MS / PhD / DBA) and
 their supervisors in **management, marketing, consumer behaviour and organizational
-behaviour**. The fourteen skills cover the full research chain: topic selection,
-literature, design, data preparation, measurement, analysis, writing, verification,
+behaviour**. The seventeen skills cover the full research chain: reading papers and
+extracting variables, topic selection, systematic review, design, data preparation,
+measurement, analysis, writing, journal selection and submission, verification,
 reviewing, and responding to reviewers.
 
 ---
@@ -24,7 +26,7 @@ reviewing, and responding to reviewers.
 
 They make the "how should this be done, how should it be reported" explicit.
 They do **not** produce research conclusions for you, and they do **not** make
-judgements on your behalf. All fourteen skills carry hard constraints; the most
+judgements on your behalf. All seventeen skills carry hard constraints; the most
 important are:
 
 | Constraint | Skill |
@@ -89,7 +91,9 @@ check each item against a real database.
 
 | Skill | In one line | Stage | Size |
 |---|---|---|---|
+| [`paper-variable-extraction`](paper-variable-extraction/) | Extract every variable and its operationalisation from a paper; Markdown report + Excel codebook | Reading & **variable extraction** | SKILL.md + 9 refs + 1 script |
 | [`literature-gap-synthesizer`](literature-gap-synthesizer/) | Synthesise a body of literature, diagnose gap types, produce a positioning brief | Topic & **literature** | SKILL.md + 2 references |
+| [`systematic-review`](systematic-review/) | Systematic review and meta-analysis: PRISMA 2020, effect-size conversion, heterogeneity, publication bias | **Evidence synthesis** | SKILL.md + 5 refs + 3 scripts |
 | [`academic-writing-assistant`](academic-writing-assistant/) | Guide the writing of Introduction and Literature Review, including gap argument and hypothesis derivation | **Writing (front half)** | SKILL.md + 4 references |
 | [`social-science-experiment-designer`](social-science-experiment-designer/) | Design a rigorous multi-study programme from scratch; six standard deliverables | **Design** | SKILL.md + 5 references |
 | [`research-data-preparation`](research-data-preparation/) | Pre-acquisition planning, exposure audit, decision status, handoff spec | **Data preparation** | SKILL.md + 10 refs + 6 scripts + 1 template |
@@ -98,6 +102,7 @@ check each item against a real database.
 | [`sem-analysis-tutor`](sem-analysis-tutor/) | Step-by-step SEM analysis (CB-SEM and PLS-SEM tracks) | **SEM** | SKILL.md + 12 references |
 | [`stats-results-writer`](stats-results-writer/) | Turn software output into APA-compliant report paragraphs (EN / ZH) | **Results** | SKILL.md + 8 references |
 | [`discussion-conclusion-writer`](discussion-conclusion-writer/) | Theoretical contribution, practical implications, limitations, conclusion (Whetten / Corley & Gioia / Bartunek & Rynes) | **Writing (back half)** | SKILL.md + 1 reference |
+| [`journal-submission`](journal-submission/) | Tier the paper, search candidate journals, assess fit and desk-reject risk, prepare the submission | **Journal selection** | SKILL.md + 4 refs |
 
 ### Adjacent tracks and reviewing
 
@@ -116,28 +121,31 @@ problem it solves, when to use it, its workflow, directory layout and caveats.
 
 ## Suggested order of use
 
-The fourteen skills follow the **research pipeline**, with two side tracks:
+The seventeen skills follow the **research pipeline**, with two side tracks:
 
 ```
-① Topic & literature   literature-gap-synthesizer
+① Read & extract       paper-variable-extraction
       ↓
-② Writing (front)      academic-writing-assistant      ← Introduction / Literature Review
+② Topic & literature   literature-gap-synthesizer → systematic-review (when synthesis is needed)
       ↓
-③ Design               social-science-experiment-designer
+③ Writing (front)      academic-writing-assistant      ← Introduction / Literature Review
       ↓
-④ Data preparation     research-data-preparation
+④ Design               social-science-experiment-designer
       ↓
-⑤ Measurement          scale-research
+⑤ Data preparation     research-data-preparation
       ↓
-⑥ Core statistics      quant-data-analysis
+⑥ Measurement          scale-research
       ↓
-⑦ SEM                  sem-analysis-tutor
+⑦ Core statistics      quant-data-analysis
       ↓
-⑧ Results              stats-results-writer
+⑧ SEM                  sem-analysis-tutor
       ↓
-⑨ Discussion           discussion-conclusion-writer
+⑨ Results              stats-results-writer
       ↓
-⑩ Verify & submit      academic-citation-auditor → management-paper-reviewer → response-to-reviewers
+⑩ Discussion           discussion-conclusion-writer
+      ↓
+⑪ Verify & submit      academic-citation-auditor → management-paper-reviewer
+                       → journal-submission → response-to-reviewers
 
 Side track A (qualitative)   qualitative-research-methods
 Side track B (grants)        grant-proposal-reviewer
@@ -147,7 +155,9 @@ The writing track is **threaded through**, not left to the end: Introduction and
 Literature Review usually get drafted before data collection and revised afterwards;
 `academic-citation-auditor` provides the final citation self-check before submission.
 
+- **Need to read a batch of papers and tabulate variables and scales** → `paper-variable-extraction`
 - **Only a broad topic, no idea what to study yet** → `literature-gap-synthesizer`
+- **Need to synthesise a set of empirical studies (including meta-analysis)** → `systematic-review`
 - **Ready to draft Introduction / Literature Review** → `academic-writing-assistant`
 - **Have an idea, no data yet** → `social-science-experiment-designer`
 - **Data not in hand; want the data plan first** → `research-data-preparation`
@@ -158,10 +168,11 @@ Literature Review usually get drafted before data collection and revised afterwa
 - **Results written; unsure how to frame the contribution** → `discussion-conclusion-writer`
 - **Doing interviews or case studies** → `qualitative-research-methods`
 - **Citation self-check before submission** → `academic-citation-auditor`
+- **No idea which tier this paper can reach, or which journals to try** → `journal-submission`
 - **Want to know how your paper will be attacked** → `management-paper-reviewer`
 - **Reviewer comments have arrived** → `response-to-reviewers`
 
-### Five boundaries that are easy to confuse
+### Seven boundaries that are easy to confuse
 
 1. **`sem-analysis-tutor` vs `quant-data-analysis`** — the boundary is the **method**,
    not whether you have data. SEM / PLS-SEM / PROCESS mediation goes to the former;
@@ -183,6 +194,15 @@ Literature Review usually get drafted before data collection and revised afterwa
 5. **Flagged-for-verification vs actually verified** — the writing skills emit citations
    **flagged for verification**; `academic-citation-auditor` is the one that **actually
    verifies**. Run it after writing.
+6. **`paper-variable-extraction` vs `systematic-review`** — the former **reads one paper and
+   extracts its variables** into a codebook; the latter **synthesises many papers** into effect
+   sizes. The former feeds the latter (its Excel can be used directly at the coding stage), but
+   they answer different questions: "how did this paper measure it" versus "what do these papers
+   say together".
+7. **`journal-submission` vs `management-paper-reviewer`** — the former judges **tier and target**;
+   the latter judges **whether the paper itself is any good**. Before submitting, attack the paper
+   with the latter first, then choose journals with the former — reverse the order and the
+   assessment gets written to fit the journal.
 
 ---
 
@@ -205,7 +225,7 @@ into your agent environment's skill directory:
 > one, so a same-named skill in `<project>/.dsh/skills/` shadows `~/.dsh/skills/`.
 
 ```bash
-# Install all 14 skills into Claude Code
+# Install all 17 skills into Claude Code
 git clone https://github.com/<your-name>/social-science-research-skills.git
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
@@ -214,9 +234,12 @@ No configuration is needed. Each skill's `description` field carries its trigger
 conditions, so it loads automatically when you mention SEM, scales, experiment design,
 Results, discussion, qualitative coding, reviewer comments and similar topics.
 
-> **Skills with scripts need extra dependencies.** The scripts in `quant-data-analysis`
-> and `research-data-preparation` depend on `pandas` / `numpy` / `scipy` /
-> `statsmodels` / `openpyxl`; reading SPSS data additionally requires `pyreadstat`:
+> **Skills with scripts need extra dependencies.**
+>
+> - `quant-data-analysis` and `research-data-preparation`: `pandas` / `numpy` / `scipy` /
+>   `statsmodels` / `openpyxl`; reading SPSS data additionally requires `pyreadstat`;
+> - `paper-variable-extraction`: only `openpyxl`;
+> - the three `systematic-review` scripts use **only the Python standard library** — nothing to install.
 >
 > ```bash
 > pip install pandas numpy scipy statsmodels openpyxl pyreadstat
@@ -268,10 +291,18 @@ These skills do not hide their limits; each one documents its own. Aggregated:
    compliance, but the judgement of whether a theme holds is yours.
 8. **The reviewing skills do not replace your judgement** — they produce scores and
    reasons; funding and acceptance decisions belong to committees and editors.
-9. **Stages not yet covered** — **journal selection and submission preparation**
-   (journal fit, cover letter, submission checklist) and **PRISMA diagrams and
-   meta-analysis** (`literature-gap-synthesizer` stops at search strategy and
-   inclusion/exclusion criteria). Both are currently gaps.
+9. **The B-track criteria in `journal-submission` have not been reviewed by a human peer** —
+   the archival-econometric track (DID / IV / RD / event studies) rests on the literature and went
+   through one systematic review, but **the reviewer was an AI, not a domain expert**. Judgements
+   of the form "what would a reviewer at tier X actually push back on" still need a human. The
+   full review log, including what was adopted and rejected, is in that skill's
+   `references/b-track-review-log.md`.
+10. **The meta-analysis scripts produce intermediate quantities** — `meta.py` / `hs_meta.py` in
+    `systematic-review` output quantities from the pooling process; before writing up, recompute in
+    R (`metafor` / `psychmeta`) and check that the two agree.
+11. **Variable extraction does not replace close reading** — `paper-variable-extraction` structures
+    *how the paper measured things*; whether the argument holds is still yours to judge, and it
+    recomputes no statistics.
 
 ---
 

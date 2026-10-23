@@ -1,18 +1,19 @@
 # 社会科学研究方法技能包
 
-> Fourteen AI agent skills for social-science research methods — literature gap
-> analysis, experiment design, data preparation, scale development & translation,
-> quantitative analysis, SEM, results reporting, discussion writing, qualitative
-> methods, citation auditing, manuscript and grant reviewing, and reviewer
-> response. Bilingual (English / 中文). Built for graduate students and
-> supervisors in management, marketing, consumer behaviour and organizational
-> behaviour.
+> Seventeen AI agent skills for social-science research methods — variable
+> extraction from papers, literature gap analysis, systematic review and
+> meta-analysis, experiment design, data preparation, scale development &
+> translation, quantitative analysis, SEM, results reporting, discussion
+> writing, qualitative methods, citation auditing, manuscript and grant
+> reviewing, journal selection, and reviewer response. Bilingual
+> (English / 中文). Built for graduate students and supervisors in management,
+> marketing, consumer behaviour and organizational behaviour.
 
 **中文** | [English](README.en.md)
 
 面向**管理学、营销学、消费者行为学、组织行为学**方向的研究生（MS / PhD / DBA）
-与指导教师的 AI 方法学助手技能包。14 个技能覆盖从选题、文献、设计、数据准备、
-测量、分析、写作到核查、评审与审稿回应的完整研究链路。
+与指导教师的 AI 方法学助手技能包。17 个技能覆盖从**读文献提变量**、选题、系统综述、
+设计、数据准备、测量、分析、写作到**选刊投稿**、核查、评审与审稿回应的完整研究链路。
 
 ---
 
@@ -21,7 +22,7 @@
 **这是方法学辅导与规范检查工具，不是代写工具。**
 
 技能包帮你把「该怎么做、该怎么报」讲清楚，**不替你产生研究结论，也不替你判断**。
-14 个技能内部都写入了硬约束，其中最重要的是：
+17 个技能内部都写入了硬约束，其中最重要的是：
 
 | 约束 | 出处 |
 |---|---|
@@ -79,7 +80,9 @@
 
 | 技能 | 一句话 | 覆盖环节 | 规模 |
 |---|---|---|---|
+| [`paper-variable-extraction`](paper-variable-extraction/) | 从论文中提取全部变量及其操作化信息，产出 Markdown 报告 + Excel 变量表 | 读论文与**变量提取** | SKILL.md + 9 refs + 1 script |
 | [`literature-gap-synthesizer`](literature-gap-synthesizer/) | 系统梳理文献、诊断缺口类型、产出研究定位简报 | 选题与**文献** | SKILL.md + 2 个 references |
+| [`systematic-review`](systematic-review/) | 系统综述与元分析：PRISMA 2020、效应量换算、异质性与发表偏倚 | **证据合成** | SKILL.md + 5 refs + 3 scripts |
 | [`academic-writing-assistant`](academic-writing-assistant/) | 引导撰写 Introduction 与 Literature Review，含缺口论证与假设推导 | 论文**写作（前段）** | SKILL.md + 4 个 references |
 | [`social-science-experiment-designer`](social-science-experiment-designer/) | 从零设计严谨的多实验研究方案，产出六个标准交付文件 | 研究**设计** | SKILL.md + 5 个 references |
 | [`research-data-preparation`](research-data-preparation/) | 数据获取前的计划、接触审计、决策状态与可交接规格 | 数据**准备** | SKILL.md + 10 refs + 6 scripts + 1 模板 |
@@ -88,6 +91,7 @@
 | [`sem-analysis-tutor`](sem-analysis-tutor/) | 手把手带你完成 SEM 分析全流程（CB-SEM / PLS-SEM 双轨） | **SEM** 分析 | SKILL.md + 12 个 references |
 | [`stats-results-writer`](stats-results-writer/) | 把统计软件输出转成规范的 APA 报告段落（中/英） | 结果**报告** | SKILL.md + 8 个 references |
 | [`discussion-conclusion-writer`](discussion-conclusion-writer/) | 理论贡献、实践启示、局限与结论段（Whetten / Corley & Gioia / Bartunek & Rynes） | 论文**写作（后段）** | SKILL.md + 1 个 references |
+| [`journal-submission`](journal-submission/) | 论文定档、候选刊检索、匹配度与 desk reject 风险、投稿准备 | **选刊与投稿** | SKILL.md + 4 refs |
 
 ### 旁支与评审
 
@@ -106,28 +110,31 @@
 
 ## 建议的使用顺序
 
-这 14 个技能沿**研究流程**衔接，另有两支旁支：
+这 17 个技能沿**研究流程**衔接，另有两支旁支：
 
 ```
-① 选题与文献   literature-gap-synthesizer
+① 读文献提变量 paper-variable-extraction
       ↓
-② 写作（前段） academic-writing-assistant      ← Introduction / Literature Review
+② 选题与文献   literature-gap-synthesizer → systematic-review（需定量合成时）
       ↓
-③ 研究设计     social-science-experiment-designer
+③ 写作（前段） academic-writing-assistant      ← Introduction / Literature Review
       ↓
-④ 数据准备     research-data-preparation
+④ 研究设计     social-science-experiment-designer
       ↓
-⑤ 测量         scale-research
+⑤ 数据准备     research-data-preparation
       ↓
-⑥ 基础统计     quant-data-analysis
+⑥ 测量         scale-research
       ↓
-⑦ SEM          sem-analysis-tutor
+⑦ 基础统计     quant-data-analysis
       ↓
-⑧ 结果写作     stats-results-writer
+⑧ SEM          sem-analysis-tutor
       ↓
-⑨ 讨论与结论   discussion-conclusion-writer
+⑨ 结果写作     stats-results-writer
       ↓
-⑩ 核查与投稿   academic-citation-auditor → management-paper-reviewer → response-to-reviewers
+⑩ 讨论与结论   discussion-conclusion-writer
+      ↓
+⑪ 核查与投稿   academic-citation-auditor → management-paper-reviewer
+                → journal-submission → response-to-reviewers
 
 旁支 A（质性路线）  qualitative-research-methods
 旁支 B（基金申请）  grant-proposal-reviewer
@@ -136,7 +143,9 @@
 写作线是**贯穿**的，不排在最后：Introduction 与 Literature Review 通常在收数据之前
 就要动笔，拿到结果后再回改；`academic-citation-auditor` 在定稿前做最后一道引用自查。
 
+- **要读一批论文、把变量与量表整理成表** → `paper-variable-extraction`
 - **只有一个宽泛主题，不知道该研究什么** → `literature-gap-synthesizer`
+- **要把一批实证研究合成一个结论（含元分析）** → `systematic-review`
 - **要动笔写 Introduction / Literature Review** → `academic-writing-assistant`
 - **有想法、还没收数据** → `social-science-experiment-designer`
 - **数据还没到手，想先想清楚数据计划** → `research-data-preparation`
@@ -147,10 +156,11 @@
 - **结果写完了，不知道怎么讲贡献** → `discussion-conclusion-writer`
 - **做的是访谈/案例** → `qualitative-research-methods`
 - **论文定稿前自查引用** → `academic-citation-auditor`
+- **不知道这篇稿子能投什么档、投哪几本** → `journal-submission`
 - **想知道自己的论文会被怎么挑刺** → `management-paper-reviewer`
 - **审稿意见回来了** → `response-to-reviewers`
 
-### 五处容易混淆的分工
+### 七处容易混淆的分工
 
 1. **`sem-analysis-tutor` vs `quant-data-analysis`** —— 边界是**方法**，不是「有没有数据」。
    SEM / PLS-SEM / PROCESS 中介走前者；ANOVA / ANCOVA / 回归调节 / 简单斜率走后者。
@@ -166,6 +176,12 @@
    两者用同一套研究定位模板，可以直接对接。
 5. **标红待核实 vs 真正去核实** —— 写作技能生成引用时**一律标红待核实**；
    `academic-citation-auditor` 才是**真正去核实**的那一个。写完之后要用它过一遍。
+6. **`paper-variable-extraction` vs `systematic-review`** —— 前者**读单篇论文、提取变量**，
+   产出变量词典；后者**合成多篇论文**，产出效应量。前者是后者的上游（编码阶段可直接用它的 Excel），
+   但两者解决的问题不同：一个问「这篇论文怎么测的」，一个问「这些论文合起来说明什么」。
+7. **`journal-submission` vs `management-paper-reviewer`** —— 前者判**档位与去哪投**；
+   后者判**这篇稿子本身好不好**。投稿前建议先用后者挑刺、再用前者选刊——
+   顺序反了会按期刊偏好倒推评语。
 
 ---
 
@@ -186,7 +202,7 @@
 > 同名技能以后者被前者覆盖。
 
 ```bash
-# 例：安装全部 14 个技能到 Claude Code
+# 例：安装全部 17 个技能到 Claude Code
 git clone https://github.com/<your-name>/social-science-research-skills.git
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
@@ -194,9 +210,12 @@ cp -r social-science-research-skills/*/ ~/.claude/skills/
 安装后**不需要任何配置**。技能的 `description` 字段里写了触发条件，
 当你提到 SEM、量表、实验设计、Results、讨论、质性编码、审稿意见等话题时会自动加载。
 
-> **带脚本的技能需要额外装依赖。** `quant-data-analysis` 与 `research-data-preparation`
-> 的脚本依赖 `pandas` / `numpy` / `scipy` / `statsmodels` / `openpyxl`，
-> 读取 SPSS 数据还需要 `pyreadstat`：
+> **带脚本的技能需要额外装依赖。**
+>
+> - `quant-data-analysis` 与 `research-data-preparation`：`pandas` / `numpy` / `scipy` /
+>   `statsmodels` / `openpyxl`，读取 SPSS 数据还需要 `pyreadstat`；
+> - `paper-variable-extraction`：只需 `openpyxl`；
+> - `systematic-review` 的三个脚本**只用 Python 标准库**，无需安装任何包。
 >
 > ```bash
 > pip install pandas numpy scipy statsmodels openpyxl pyreadstat
@@ -242,9 +261,14 @@ cp -r social-science-research-skills/*/ ~/.claude/skills/
    技能只负责结构化与规范核查，主题成立与否的判断权在你。
 8. **评审技能不替代你的判断**——`management-paper-reviewer` 与 `grant-proposal-reviewer`
    给的是评分与理由，是否资助/接收由委员会或编辑决定。
-9. **尚未覆盖的环节**——**选刊与投稿准备**（期刊匹配、cover letter、投稿材料清单）、
-   **PRISMA 流程图与元分析**（`literature-gap-synthesizer` 只到检索策略与纳入排除标准）。
-   这两块目前是空白。
+9. **选刊判据的 B 轨尚未经真人同行审核**——`journal-submission` 的档案计量那一轨
+   （DID / IV / RD / 事件研究）判据骨架来自文献，并做过一次系统审核，但**审核者是 AI，不是领域内同行**。
+   「某档期刊的审稿人实际会追问什么」这类判断仍需真人把关；采纳与不采纳的完整记录见该技能的
+   `references/b-track-review-log.md`，可自行核验。
+10. **元分析脚本给的是中间量**——`systematic-review` 的 `meta.py` / `hs_meta.py` 输出的是
+    合成过程中的量，定稿前建议用 R（`metafor` / `psychmeta`）复算一次，两边对上再写进论文。
+11. **变量提取不替代精读**——`paper-variable-extraction` 结构化的是「论文怎么测的」，
+    论文的论证是否成立仍需自己判断；它也不重算任何统计量。
 
 ---
 
