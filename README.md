@@ -1,7 +1,8 @@
 # 社会科学研究方法技能包
 
-> Seventeen AI agent skills for social-science research methods — variable
-> extraction from papers, literature gap analysis, systematic review and
+> Eighteen AI agent skills for social-science research methods — turning a
+> vague observation into a research question, variable extraction from papers,
+> literature gap analysis, systematic review and
 > meta-analysis, experiment design, data preparation, scale development &
 > translation, quantitative analysis, SEM, results reporting, discussion
 > writing, qualitative methods, citation auditing, manuscript and grant
@@ -12,7 +13,7 @@
 **中文** | [English](README.en.md)
 
 面向**管理学、营销学、消费者行为学、组织行为学**方向的研究生（MS / PhD / DBA）
-与指导教师的 AI 方法学助手技能包。17 个技能覆盖从**读文献提变量**、选题、系统综述、
+与指导教师的 AI 方法学助手技能包。18 个技能覆盖从**从现象到问题**、读文献提变量、选题、系统综述、
 设计、数据准备、测量、分析、写作到**选刊投稿**、核查、评审与审稿回应的完整研究链路。
 
 ---
@@ -22,7 +23,7 @@
 **这是方法学辅导与规范检查工具，不是代写工具。**
 
 技能包帮你把「该怎么做、该怎么报」讲清楚，**不替你产生研究结论，也不替你判断**。
-17 个技能内部都写入了硬约束，其中最重要的是：
+18 个技能内部都写入了硬约束，其中最重要的是：
 
 | 约束 | 出处 |
 |---|---|
@@ -80,9 +81,10 @@
 
 | 技能 | 一句话 | 覆盖环节 | 规模 |
 |---|---|---|---|
-| [`paper-variable-extraction`](paper-variable-extraction/) | 从论文中提取全部变量及其操作化信息，产出 Markdown 报告 + Excel 变量表 | 读论文与**变量提取** | SKILL.md + 9 refs + 1 script |
+| [`phenomenon-to-question`](phenomenon-to-question/) | 把模糊的观察收敛成可研究的问题：前提压力测试、跨领域理论透镜、候选问题生成 | **从现象到问题** | SKILL.md + 4 个 references |
 | [`literature-gap-synthesizer`](literature-gap-synthesizer/) | 系统梳理文献、诊断缺口类型、产出研究定位简报 | 选题与**文献** | SKILL.md + 2 个 references |
 | [`systematic-review`](systematic-review/) | 系统综述与元分析：PRISMA 2020、效应量换算、异质性与发表偏倚 | **证据合成** | SKILL.md + 5 refs + 3 scripts |
+| [`paper-variable-extraction`](paper-variable-extraction/) | 从论文中提取全部变量及其操作化信息，产出 Markdown 报告 + Excel 变量表 | 读论文与**变量提取** | SKILL.md + 9 refs + 1 script |
 | [`academic-writing-assistant`](academic-writing-assistant/) | 引导撰写 Introduction 与 Literature Review，含缺口论证与假设推导 | 论文**写作（前段）** | SKILL.md + 4 个 references |
 | [`social-science-experiment-designer`](social-science-experiment-designer/) | 从零设计严谨的多实验研究方案，产出六个标准交付文件 | 研究**设计** | SKILL.md + 5 个 references |
 | [`research-data-preparation`](research-data-preparation/) | 数据获取前的计划、接触审计、决策状态与可交接规格 | 数据**准备** | SKILL.md + 10 refs + 6 scripts + 1 模板 |
@@ -110,13 +112,13 @@
 
 ## 建议的使用顺序
 
-这 17 个技能沿**研究流程**衔接，另有两支旁支：
+这 18 个技能沿**研究流程**衔接，另有两支旁支：
 
 ```
-① 读文献提变量 paper-variable-extraction
+① 从现象到问题 phenomenon-to-question
       ↓
 ② 选题与文献   literature-gap-synthesizer → systematic-review（需定量合成时）
-      ↓
+      ↓   ↕ 读文献时提变量：paper-variable-extraction
 ③ 写作（前段） academic-writing-assistant      ← Introduction / Literature Review
       ↓
 ④ 研究设计     social-science-experiment-designer
@@ -143,6 +145,7 @@
 写作线是**贯穿**的，不排在最后：Introduction 与 Literature Review 通常在收数据之前
 就要动笔，拿到结果后再回改；`academic-citation-auditor` 在定稿前做最后一道引用自查。
 
+- **有一个现象，但不知道该研究什么** → `phenomenon-to-question`
 - **要读一批论文、把变量与量表整理成表** → `paper-variable-extraction`
 - **只有一个宽泛主题，不知道该研究什么** → `literature-gap-synthesizer`
 - **要把一批实证研究合成一个结论（含元分析）** → `systematic-review`
@@ -160,7 +163,7 @@
 - **想知道自己的论文会被怎么挑刺** → `management-paper-reviewer`
 - **审稿意见回来了** → `response-to-reviewers`
 
-### 七处容易混淆的分工
+### 八处容易混淆的分工
 
 1. **`sem-analysis-tutor` vs `quant-data-analysis`** —— 边界是**方法**，不是「有没有数据」。
    SEM / PLS-SEM / PROCESS 中介走前者；ANOVA / ANCOVA / 回归调节 / 简单斜率走后者。
@@ -182,6 +185,10 @@
 7. **`journal-submission` vs `management-paper-reviewer`** —— 前者判**档位与去哪投**；
    后者判**这篇稿子本身好不好**。投稿前建议先用后者挑刺、再用前者选刊——
    顺序反了会按期刊偏好倒推评语。
+8. **`phenomenon-to-question` vs `literature-gap-synthesizer`** —— 区别在**起点**：
+   前者从**现象**出发（"我观察到 X，这能不能做研究"），产出研究问题；
+   后者从**主题/构念**出发（"我想研究 X，文献缺什么"），产出研究定位。
+   用户只有一个模糊的观察时先走前者，已有明确构念时直接走后者。
 
 ---
 
@@ -202,7 +209,7 @@
 > 同名技能以后者被前者覆盖。
 
 ```bash
-# 例：安装全部 17 个技能到 Claude Code
+# 例：安装全部 18 个技能到 Claude Code
 git clone https://github.com/yanchenli/social-science-research-skills.git
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```

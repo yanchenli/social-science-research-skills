@@ -1,7 +1,8 @@
 # Social-Science Research Methods — Agent Skill Pack
 
-> Seventeen AI agent skills for social-science research methods — variable
-> extraction from papers, literature gap analysis, systematic review and
+> Eighteen AI agent skills for social-science research methods — turning a
+> vague observation into a research question, variable extraction from papers,
+> literature gap analysis, systematic review and
 > meta-analysis, experiment design, data preparation, scale development &
 > translation, quantitative analysis, SEM, results reporting, discussion
 > writing, qualitative methods, citation auditing, manuscript and grant
@@ -13,10 +14,10 @@
 
 An AI methodology assistant skill pack for graduate students (MS / PhD / DBA) and
 their supervisors in **management, marketing, consumer behaviour and organizational
-behaviour**. The seventeen skills cover the full research chain: reading papers and
-extracting variables, topic selection, systematic review, design, data preparation,
-measurement, analysis, writing, journal selection and submission, verification,
-reviewing, and responding to reviewers.
+behaviour**. The eighteen skills cover the full research chain: turning a phenomenon
+into a question, topic selection, systematic review, extracting variables while
+reading, design, data preparation, measurement, analysis, writing, journal selection
+and submission, verification, reviewing, and responding to reviewers.
 
 ---
 
@@ -26,7 +27,7 @@ reviewing, and responding to reviewers.
 
 They make the "how should this be done, how should it be reported" explicit.
 They do **not** produce research conclusions for you, and they do **not** make
-judgements on your behalf. All seventeen skills carry hard constraints; the most
+judgements on your behalf. All eighteen skills carry hard constraints; the most
 important are:
 
 | Constraint | Skill |
@@ -91,9 +92,10 @@ check each item against a real database.
 
 | Skill | In one line | Stage | Size |
 |---|---|---|---|
-| [`paper-variable-extraction`](paper-variable-extraction/) | Extract every variable and its operationalisation from a paper; Markdown report + Excel codebook | Reading & **variable extraction** | SKILL.md + 9 refs + 1 script |
+| [`phenomenon-to-question`](phenomenon-to-question/) | Turn a vague observation into a researchable question: premise stress tests, cross-domain theory lenses, candidate questions | **Phenomenon to question** | SKILL.md + 4 references |
 | [`literature-gap-synthesizer`](literature-gap-synthesizer/) | Synthesise a body of literature, diagnose gap types, produce a positioning brief | Topic & **literature** | SKILL.md + 2 references |
 | [`systematic-review`](systematic-review/) | Systematic review and meta-analysis: PRISMA 2020, effect-size conversion, heterogeneity, publication bias | **Evidence synthesis** | SKILL.md + 5 refs + 3 scripts |
+| [`paper-variable-extraction`](paper-variable-extraction/) | Extract every variable and its operationalisation from a paper; Markdown report + Excel codebook | Reading & **variable extraction** | SKILL.md + 9 refs + 1 script |
 | [`academic-writing-assistant`](academic-writing-assistant/) | Guide the writing of Introduction and Literature Review, including gap argument and hypothesis derivation | **Writing (front half)** | SKILL.md + 4 references |
 | [`social-science-experiment-designer`](social-science-experiment-designer/) | Design a rigorous multi-study programme from scratch; six standard deliverables | **Design** | SKILL.md + 5 references |
 | [`research-data-preparation`](research-data-preparation/) | Pre-acquisition planning, exposure audit, decision status, handoff spec | **Data preparation** | SKILL.md + 10 refs + 6 scripts + 1 template |
@@ -121,13 +123,13 @@ problem it solves, when to use it, its workflow, directory layout and caveats.
 
 ## Suggested order of use
 
-The seventeen skills follow the **research pipeline**, with two side tracks:
+The eighteen skills follow the **research pipeline**, with two side tracks:
 
 ```
-① Read & extract       paper-variable-extraction
+① Phenomenon           phenomenon-to-question
       ↓
 ② Topic & literature   literature-gap-synthesizer → systematic-review (when synthesis is needed)
-      ↓
+      ↓   ↕ extracting variables while reading: paper-variable-extraction
 ③ Writing (front)      academic-writing-assistant      ← Introduction / Literature Review
       ↓
 ④ Design               social-science-experiment-designer
@@ -155,6 +157,7 @@ The writing track is **threaded through**, not left to the end: Introduction and
 Literature Review usually get drafted before data collection and revised afterwards;
 `academic-citation-auditor` provides the final citation self-check before submission.
 
+- **Have a phenomenon but no idea what to study** → `phenomenon-to-question`
 - **Need to read a batch of papers and tabulate variables and scales** → `paper-variable-extraction`
 - **Only a broad topic, no idea what to study yet** → `literature-gap-synthesizer`
 - **Need to synthesise a set of empirical studies (including meta-analysis)** → `systematic-review`
@@ -172,7 +175,7 @@ Literature Review usually get drafted before data collection and revised afterwa
 - **Want to know how your paper will be attacked** → `management-paper-reviewer`
 - **Reviewer comments have arrived** → `response-to-reviewers`
 
-### Seven boundaries that are easy to confuse
+### Eight boundaries that are easy to confuse
 
 1. **`sem-analysis-tutor` vs `quant-data-analysis`** — the boundary is the **method**,
    not whether you have data. SEM / PLS-SEM / PROCESS mediation goes to the former;
@@ -203,6 +206,11 @@ Literature Review usually get drafted before data collection and revised afterwa
    the latter judges **whether the paper itself is any good**. Before submitting, attack the paper
    with the latter first, then choose journals with the former — reverse the order and the
    assessment gets written to fit the journal.
+8. **`phenomenon-to-question` vs `literature-gap-synthesizer`** — the difference is the **starting
+   point**: the former begins with a **phenomenon** ("I noticed X — can it be researched?") and
+   produces a research question; the latter begins with a **topic or construct** ("I want to study
+   X — what is missing?") and produces a positioning statement. Vague observation first, then the
+   former; explicit construct already in hand, go straight to the latter.
 
 ---
 
@@ -225,7 +233,7 @@ into your agent environment's skill directory:
 > one, so a same-named skill in `<project>/.dsh/skills/` shadows `~/.dsh/skills/`.
 
 ```bash
-# Install all 17 skills into Claude Code
+# Install all 18 skills into Claude Code
 git clone https://github.com/yanchenli/social-science-research-skills.git
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
