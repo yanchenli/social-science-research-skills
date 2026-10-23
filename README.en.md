@@ -226,9 +226,52 @@ into your agent environment's skill directory:
 
 ```bash
 # Install all 17 skills into Claude Code
-git clone https://github.com/<your-name>/social-science-research-skills.git
+git clone https://github.com/yanchenli/social-science-research-skills.git
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
+
+### Let the agent install it for you
+
+Paste one of the prompts below into whichever agent you use — Claude Code, Codex, DeepSeek Harness or
+WorkBuddy all work. Both prompts make the agent **confirm the directory first, check for name clashes,
+and self-check afterwards** rather than copying blindly.
+
+**① Global install** (available in every project on this machine)
+
+```
+Install the skills from https://github.com/yanchenli/social-science-research-skills into this machine's user-level skills directory.
+
+1. First work out which skills directory applies: Claude Code uses ~/.claude/skills/,
+   WorkBuddy uses ~/.workbuddy-ai/skills/, DeepSeek Harness uses ~/.dsh/skills/.
+   If you cannot tell, ask me — do not guess.
+2. Clone the repository into a temporary directory; if git is unavailable, download the zip and extract it.
+3. Copy only directories that contain a SKILL.md. Do not copy README.md, README.en.md, LICENSE or .git.
+4. Before copying, check whether any same-named skill already exists in the target directory.
+   If so, show me the list and ask whether to overwrite — do not overwrite silently.
+5. When done, verify and report: how many were installed, which ones, whether SKILL.md exists in each,
+   and which skills ship scripts that need extra dependencies.
+```
+
+**② Project-workspace install** (available only inside this project)
+
+```
+Install the skills from https://github.com/yanchenli/social-science-research-skills into this project's project-level skills directory,
+but only the ones I name.
+
+1. First work out the project-level directory: Claude Code uses <project root>/.claude/skills/,
+   DeepSeek Harness uses <project root>/.dsh/skills/,
+   WorkBuddy uses <project root>/.workbuddy-ai/skills/. If you cannot tell, ask me.
+2. Clone the repository into a temporary directory; if git is unavailable, download the zip and extract it.
+3. The skills I want are: <list skill names here, e.g. paper-variable-extraction, systematic-review>.
+   If I did not list any, show me the skill list and let me choose.
+4. Copy only those skill directories. Do not copy README.md, README.en.md, LICENSE or .git.
+5. Check for name clashes before copying and ask me if there are any.
+6. When done, verify and report: what was installed, whether SKILL.md exists, and what needs dependencies.
+```
+
+> **Project-level takes precedence over user-level**: a same-named skill shadows the user-level one, so
+> option ② is the safer way to try the pack inside a single project. If your environment is not in the
+> table above, replace the directory in step 1 with your actual path.
 
 No configuration is needed. Each skill's `description` field carries its trigger
 conditions, so it loads automatically when you mention SEM, scales, experiment design,

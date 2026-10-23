@@ -203,9 +203,47 @@
 
 ```bash
 # 例：安装全部 17 个技能到 Claude Code
-git clone https://github.com/<your-name>/social-science-research-skills.git
+git clone https://github.com/yanchenli/social-science-research-skills.git
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
+
+### 让 AI agent 自己装（不用碰命令行）
+
+把下面这段话直接发给你在用的 agent——Claude Code / Codex / DeepSeek Harness / WorkBuddy 都适用。
+两段提示词都要求它**先确认目录、先检查同名冲突、装完自检**，而不是闷头复制。
+
+**① 全局安装**（本机所有项目可用）
+
+```
+请把 https://github.com/yanchenli/social-science-research-skills 里的技能安装到本机的用户级技能目录。
+
+1. 先确认我的技能目录是哪个：Claude Code 是 ~/.claude/skills/，WorkBuddy 是 ~/.workbuddy-ai/skills/，
+   DeepSeek Harness 是 ~/.dsh/skills/。判断不了就问我，不要猜。
+2. 把仓库克隆到临时目录；没有 git 就下载 zip 解压。
+3. 只复制含 SKILL.md 的目录，不要复制 README.md、README.en.md、LICENSE、.git。
+4. 复制前检查目标目录里有没有同名技能。有的话先把清单给我，问我要不要覆盖，不要直接盖。
+5. 装完自检并报告：装了几个、分别是哪些、每个目录下 SKILL.md 是否存在、
+   哪些技能带脚本需要额外装依赖。
+```
+
+**② 项目工作区安装**（只在这个项目里可用）
+
+```
+请把 https://github.com/yanchenli/social-science-research-skills 里的技能装到当前项目的项目级技能目录，只装我指定的几个。
+
+1. 先确认项目级目录：Claude Code 是 <项目根>/.claude/skills/，
+   DeepSeek Harness 是 <项目根>/.dsh/skills/，WorkBuddy 是 <项目根>/.workbuddy-ai/skills/。
+   判断不了就问我。
+2. 把仓库克隆到临时目录；没有 git 就下载 zip 解压。
+3. 我要装的是：<在这里写技能名，如 paper-variable-extraction、systematic-review>。
+   我没写的话，先把技能清单列出来让我选。
+4. 只复制这些技能目录，不要复制 README.md、README.en.md、LICENSE、.git。
+5. 复制前检查同名冲突，有冲突先问我。
+6. 装完自检并报告：装了什么、SKILL.md 是否存在、哪些需要装依赖。
+```
+
+> **项目级优先于用户级**：同名技能会覆盖用户级的，所以「只想在某个项目里先试试」用第 ② 种更安全。
+> 如果你的环境不在上表里，把提示词第 1 步的目录换成你的实际目录即可。
 
 安装后**不需要任何配置**。技能的 `description` 字段里写了触发条件，
 当你提到 SEM、量表、实验设计、Results、讨论、质性编码、审稿意见等话题时会自动加载。
