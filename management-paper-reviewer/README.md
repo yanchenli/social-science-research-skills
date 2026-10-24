@@ -122,7 +122,7 @@
 - 收到审稿意见、要写回应 → 用 [`response-to-reviewers`](../response-to-reviewers/)。两者一体两面。
 - 要核验引用是否真实存在 → 用 [`academic-citation-auditor`](../academic-citation-auditor/)。
   本技能的引用核查只基于论文自身的参考文献列表。
-- 评的是**学位论文**而非期刊论文 → 用另一套盲审流程（该技能不公开）。
+- 评的是**学位论文**而非期刊论文 → 不在本技能范围内。
 - 评的是**基金申请书** → 用 [`grant-proposal-reviewer`](../grant-proposal-reviewer/)。
   评计划与评已完成的研究，标准不同。
 

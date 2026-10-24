@@ -130,7 +130,7 @@ the blue team, and keeps only what survives fact-checking.
 
 - **Reviews have arrived and you need to respond** → [`response-to-reviewers`](../response-to-reviewers/). Two sides of one coin.
 - **Need to verify whether citations exist** → [`academic-citation-auditor`](../academic-citation-auditor/). This skill's citation check uses only the paper's own reference list.
-- **Reviewing a thesis rather than a journal manuscript** → a separate blind-review workflow (not public).
+- **Reviewing a thesis rather than a journal manuscript** → outside this skill's scope.
 - **Reviewing a grant proposal** → [`grant-proposal-reviewer`](../grant-proposal-reviewer/). Reviewing a plan and reviewing completed research use different criteria.
 
 ---

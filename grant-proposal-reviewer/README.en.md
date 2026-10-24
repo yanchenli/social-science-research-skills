@@ -97,7 +97,7 @@ dimension with reasons for deductions, then produces the two versions.
 ## Division of labour
 
 - **Reviewing a journal manuscript** → [`management-paper-reviewer`](../management-paper-reviewer/).
-- **Reviewing a thesis** → a separate blind-review workflow (not public).
+- **Reviewing a thesis** → outside this skill's scope.
 - **The proposed design itself needs improvement** → [`social-science-experiment-designer`](../social-science-experiment-designer/).
 - **The applicant-version register** matches [`response-to-reviewers`](../response-to-reviewers/) — polite, non-defensive, reasons rather than attitude.
 

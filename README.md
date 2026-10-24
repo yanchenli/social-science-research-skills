@@ -211,6 +211,8 @@
 ```bash
 # 例：安装全部 18 个技能到 Claude Code
 git clone https://github.com/yanchenli/social-science-research-skills.git
+# 锁定版本：不写下面这行就会跟随 main，日后仓库更新会被静默带入
+git -C social-science-research-skills checkout v3.1.1
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
 

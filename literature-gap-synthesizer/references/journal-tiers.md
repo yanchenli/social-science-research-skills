@@ -12,7 +12,7 @@
    - **可信** ≈ ABDC B及以下、但仍是正规同行评审期刊——可用，但分量比"优秀"轻，避免让它扛论证主力
    - **实践类**（Harvard Business Review、MIT Sloan Management Review、California Management Review）——仅用于应用型论文的实践背景与建议部分，不作学术论证主力
 2. 清单外期刊：建议先查是否被中科院《国际期刊预警名单》点名、是否被Web of Science/Scopus收录，或与导师/项目负责人确认。
-3. **禁用出版机构**（旗下期刊一律不建议使用）：MDPI、Frontiers、Hindawi、Baishideng（百世登）、OMICS、Academic Journals、SciencePG（Science Publishing Group）、汉斯出版社；BMC系亦不建议。选刊与引用前可用中科院《国际期刊预警名单》、DOAJ、COPE会员名录交叉核验。
+3. **常见的机构自行排除名单**（不是官方认定）：部分商学院与科研管理机构会自行排除 MDPI、Frontiers、Hindawi、Baishideng（百世登）、OMICS、Academic Journals、SciencePG（Science Publishing Group）、汉斯出版社等出版机构，BMC 系有的机构亦排除。**各机构政策差异很大，以本校/本院规定为准。** 本清单只表示「本技能默认不把它们当作主要论据来源」，不构成对这些机构的官方定性。注意区分：中科院《国际期刊预警名单》是**逐刊**认定，与机构按出版社**整体**排除是两回事。选刊与引用前可用中科院《国际期刊预警名单》、DOAJ、COPE 会员名录交叉核验。
 
 ---
 

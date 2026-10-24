@@ -95,7 +95,7 @@
 ## 与相邻技能的分工
 
 - 评**期刊论文** → 用 [`management-paper-reviewer`](../management-paper-reviewer/)。
-- 评**学位论文** → 用另一套盲审流程（该技能不公开）。
+- 评**学位论文** → 不在本技能范围内。
 - 申请书里的研究设计本身需要改进建议 → 可转 [`social-science-experiment-designer`](../social-science-experiment-designer/)。
 - 申请人反馈版的语气，与 [`response-to-reviewers`](../response-to-reviewers/) 的「礼貌、不防御、
   用具体理由而非态度」是同一套写法。

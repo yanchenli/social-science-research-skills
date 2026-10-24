@@ -235,6 +235,9 @@ into your agent environment's skill directory:
 ```bash
 # Install all 18 skills into Claude Code
 git clone https://github.com/yanchenli/social-science-research-skills.git
+# Pin the version: without this line you track main, and later pushes
+# are pulled in silently
+git -C social-science-research-skills checkout v3.1.1
 cp -r social-science-research-skills/*/ ~/.claude/skills/
 ```
 

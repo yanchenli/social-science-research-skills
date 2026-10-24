@@ -101,13 +101,13 @@ license: CC-BY-4.0
 - 作者真实存在，但从未发表过该领域研究
 - 期刊名称真实，但该期刊从未出版过该文章
 
-### 信号2：掠夺性期刊（Predatory Journals）与禁用出版机构
+### 信号2：掠夺性期刊（Predatory Journals）与机构自行排除的出版机构
 - 未被 SSCI / SCI / ESCI / CSSCI 收录
 - 出现在 Beall's List 或类似黑名单
 - 审稿周期异常短（<2周接受）或收费异常高
-- **出版机构在禁用名单内**：MDPI、Frontiers、Hindawi、Baishideng（百世登）、OMICS、Academic Journals、SciencePG（Science Publishing Group）、汉斯出版社；BMC系为"不建议"。若用户/学院提供了自己的禁用名单，以其为准；此默认名单与`literature-gap-synthesizer`的`references/journal-tiers.md`一致
+- **出版机构落在机构自行排除名单内**：部分商学院与科研管理机构会自行排除 MDPI、Frontiers、Hindawi、Baishideng（百世登）、OMICS、Academic Journals、SciencePG（Science Publishing Group）、汉斯出版社等，BMC 系有的机构亦排除。**这是机构政策，不是官方认定**——中科院《国际期刊预警名单》是逐刊认定，与按出版社整体排除不同（2025 版名单只收 5 本，不含 MDPI）。若用户/学院提供了自己的名单，以其为准；此默认清单与`literature-gap-synthesizer`的`references/journal-tiers.md`一致
 - ⚠️ **收录不等于通过**：上述部分出版机构旗下不少期刊被SCI/SSCI收录，只用"是否被收录"判断会漏掉它们，所以出版机构名单要**单独检查**，与收录检查并行，不能互相替代
-- 报告中的处理：命中禁用出版机构的条目标为🚩"禁用出版机构"，并说明这是**来源政策问题，不等同于文献造假**——文献本身可能真实存在，只是不宜作为论据引用
+- 报告中的处理：命中机构排除名单的条目标为🚩"机构排除"，并说明这是**来源政策问题，不等同于文献造假**——文献本身可能真实存在，只是不宜作为论据引用
 - 可用中科院《国际期刊预警名单》、DOAJ、COPE会员名录交叉核验期刊本身
 
 ### 信号3：引用目的失实（汇总 Phase 2 Step D 结果）
