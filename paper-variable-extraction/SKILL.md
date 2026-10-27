@@ -145,3 +145,19 @@ python3 scripts/export_codebook.py <input.json> --mermaid
 - `references/qualitative.md` — 质性方法：取样、提纲、编码方案、编码者信度
 - `references/excel-codebook.md` — Excel 字段规范与 JSON schema
 - `scripts/export_codebook.py` — JSON → xlsx 生成脚本
+
+---
+
+## 交接：从哪来、到哪去
+
+| 方向 | 技能 | 交接什么 |
+|---|---|---|
+| 上游 | `phenomenon-to-question` | 研究问题定了，才知道该读哪些文献、盯哪几类变量 |
+| 上游 | `literature-gap-synthesizer` / `systematic-review` | 待读文献的清单；系统综述还给出筛选后的最终集合 |
+| 下游 | `scale-research` | 提取到的量表与原始题项——正是它要评估、翻译与改编的输入 |
+| 下游 | `social-science-experiment-designer` | 别人怎么操纵、怎么测量这个构念，直接决定实验材料怎么写 |
+| 下游 | `paper-figures-tables` | 提取结果整理成**文献编码矩阵表**（三线表） |
+| 下游 | `academic-writing-assistant` | 写文献综述时引用：谁用了什么量表、在什么情境、结果如何 |
+
+**单独使用**：给一篇（或一批）PDF 就能产出 Markdown 报告 + Excel 变量表，不需要上游提供任何特定格式。
+本技能**不读上游技能的文件**，只读你给的论文——文献清单从哪来不影响提取流程。
