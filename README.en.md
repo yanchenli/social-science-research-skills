@@ -14,7 +14,7 @@
 
 An AI methodology assistant skill pack for graduate students (MS / PhD / DBA) and
 their supervisors in **management, marketing, consumer behaviour and organizational
-behaviour**. The eighteen skills cover the full research chain: turning a phenomenon
+behaviour**. The nineteen skills cover the full research chain: turning a phenomenon
 into a question, topic selection, systematic review, extracting variables while
 reading, design, data preparation, measurement, analysis, writing, journal selection
 and submission, verification, reviewing, and responding to reviewers.
@@ -27,7 +27,7 @@ and submission, verification, reviewing, and responding to reviewers.
 
 They make the "how should this be done, how should it be reported" explicit.
 They do **not** produce research conclusions for you, and they do **not** make
-judgements on your behalf. All eighteen skills carry hard constraints; the most
+judgements on your behalf. All nineteen skills carry hard constraints; the most
 important are:
 
 | Constraint | Skill |
@@ -103,6 +103,7 @@ check each item against a real database.
 | [`quant-data-analysis`](quant-data-analysis/) | Data screening, ANOVA/ANCOVA, regression moderation — actually executed (scripts included) | **Core statistics** | SKILL.md + 2 refs + 4 scripts |
 | [`sem-analysis-tutor`](sem-analysis-tutor/) | Step-by-step SEM analysis (CB-SEM and PLS-SEM tracks) | **SEM** | SKILL.md + 12 references |
 | [`stats-results-writer`](stats-results-writer/) | Turn software output into APA-compliant report paragraphs (EN / ZH) | **Results** | SKILL.md + 8 references |
+| [`paper-figures-tables`](paper-figures-tables/) | APA three-line tables, conceptual / measurement / structural model diagrams, interaction and estimate plots, multi-series line charts; landscape pages and stacked cells; also audits figures and tables students submit | **Figures & tables** | SKILL.md + 5 refs + 21 scripts |
 | [`discussion-conclusion-writer`](discussion-conclusion-writer/) | Theoretical contribution, practical implications, limitations, conclusion (Whetten / Corley & Gioia / Bartunek & Rynes) | **Writing (back half)** | SKILL.md + 1 reference |
 | [`journal-submission`](journal-submission/) | Tier the paper, search candidate journals, assess fit and desk-reject risk, prepare the submission | **Journal selection** | SKILL.md + 4 refs |
 
@@ -123,7 +124,7 @@ problem it solves, when to use it, its workflow, directory layout and caveats.
 
 ## Suggested order of use
 
-The eighteen skills follow the **research pipeline**, with two side tracks:
+The nineteen skills follow the **research pipeline**, with two side tracks:
 
 ```
 ① Phenomenon           phenomenon-to-question
@@ -143,6 +144,7 @@ The eighteen skills follow the **research pipeline**, with two side tracks:
 ⑧ SEM                  sem-analysis-tutor
       ↓
 ⑨ Results              stats-results-writer
+      ↓   ↕ tables and figures: paper-figures-tables
       ↓
 ⑩ Discussion           discussion-conclusion-writer
       ↓
@@ -152,6 +154,10 @@ The eighteen skills follow the **research pipeline**, with two side tracks:
 Side track A (qualitative)   qualitative-research-methods
 Side track B (grants)        grant-proposal-reviewer
 ```
+
+The figure track is **threaded through** as well: tables and figures are produced as soon as results
+exist, and their numbers change when the draft changes — which is why `paper-figures-tables` and
+`stats-results-writer` point at each other (the ↕ in the diagram).
 
 The writing track is **threaded through**, not left to the end: Introduction and
 Literature Review usually get drafted before data collection and revised afterwards;
@@ -168,6 +174,7 @@ Literature Review usually get drafted before data collection and revised afterwa
 - **Data collected; need ANOVA / regression** → `quant-data-analysis`
 - **Need SEM / mediation** → `sem-analysis-tutor`
 - **Analysis done; need to write Results** → `stats-results-writer`
+- **Need APA tables, a conceptual or path diagram, or an audit of figures a student submitted** → `paper-figures-tables`
 - **Results written; unsure how to frame the contribution** → `discussion-conclusion-writer`
 - **Doing interviews or case studies** → `qualitative-research-methods`
 - **Citation self-check before submission** → `academic-citation-auditor`
@@ -233,7 +240,7 @@ into your agent environment's skill directory:
 > one, so a same-named skill in `<project>/.dsh/skills/` shadows `~/.dsh/skills/`.
 
 ```bash
-# Install all 18 skills into Claude Code
+# Install all 19 skills into Claude Code
 git clone https://github.com/yanchenli/social-science-research-skills.git
 # Pin the version: without this line you track main, and later pushes
 # are pulled in silently
@@ -293,6 +300,7 @@ Results, discussion, qualitative coding, reviewer comments and similar topics.
 > - `quant-data-analysis` and `research-data-preparation`: `pandas` / `numpy` / `scipy` /
 >   `statsmodels` / `openpyxl`; reading SPSS data additionally requires `pyreadstat`;
 > - `paper-variable-extraction`: only `openpyxl`;
+> - `paper-figures-tables`: `python-docx` is required for .docx; `matplotlib` for PDF/PNG, `PyMuPDF` for PDF checks, `Pillow` for raster checks — the last three are optional and degrade to “not checked” rather than failing;
 > - the three `systematic-review` scripts use **only the Python standard library** — nothing to install.
 >
 > ```bash

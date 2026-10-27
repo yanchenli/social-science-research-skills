@@ -1,0 +1,612 @@
+{
+  "catalog_version": "1.0.0",
+  "status": "partial_traceable",
+  "note": "本目录只收录本技能实际检查的规则。每条都写明：出处、是否自动、以及本检查查不到什么。status=partial_traceable 的含义是——只覆盖列出的这些，不是 APA 或任何期刊规范的完整转写；通过不等于合规。",
+  "sources": {
+    "apa7": "APA 第 7 版手册第 7 章（Tables and Figures）；在线入口 https://apastyle.apa.org/style-grammar-guidelines/tables-figures",
+    "text_width": "Letter 纸 + 1 in 页边距 → 版心 6.5 in（APA 默认页面设置；各刊稿约可能不同）",
+    "internal": "本技能内部约定（经验规则，非标准条文）"
+  },
+  "rules": [
+    {
+      "id": "PFT-GEN-000",
+      "scope": "report",
+      "title": "未归类的结论（兜底）",
+      "check": "旧代码返回的普通字符串会被归到这里",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "出现这个编号说明有检查项还没登记到目录，应当补规则而不是长期留着"
+    },
+    {
+      "id": "PFT-GEN-404",
+      "scope": "report",
+      "title": "指定的文件不存在",
+      "check": "检查路径是否存在",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只判断存在性"
+    },
+    {
+      "id": "PFT-FIG-000",
+      "scope": "figure",
+      "title": "图的结构性问题",
+      "check": "XML 解析失败、找不到任何文本元素",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "结构层判断；不涉及具体排版规格"
+    },
+    {
+      "id": "PFT-FIG-001",
+      "scope": "figure",
+      "title": "图幅不超过版心宽度",
+      "check": "读 SVG 的 width，超过 6.5 in 报错",
+      "source": "text_width",
+      "automated": true,
+      "manual": false,
+      "limit": "只查画布声明宽度；不查插入文档后是否被缩放，也不查目标期刊是否允许更宽"
+    },
+    {
+      "id": "PFT-FIG-002",
+      "scope": "figure",
+      "title": "图内字号 8–14 pt",
+      "check": "扫描全部 font-size，低于 8 报错、高于 14 提示",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "按图的实际尺寸计算；若把图缩小后再插入文档，实际字号会变小，本检查看不到"
+    },
+    {
+      "id": "PFT-FIG-003",
+      "scope": "figure",
+      "title": "数据线不细于 0.4 pt",
+      "check": "扫描 line/polyline/path/rect 的 stroke-width",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只判断粗细，不判断这条线该不该画；填充色实心标记的 0 线宽不算数据线"
+    },
+    {
+      "id": "PFT-FIG-004",
+      "scope": "figure",
+      "title": "文字不超出画布",
+      "check": "按 text-anchor 估算包围盒，超出画布即报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "宽度按 0.55 em/字符估算；旋转文字跳过（包围盒要按旋转后算，估算不可靠），宁可漏报不误报"
+    },
+    {
+      "id": "PFT-FIG-005",
+      "scope": "figure",
+      "title": "只画左轴与下轴，刻度在轴外侧",
+      "check": "生成器结构保证；自检里断言刻度文字在轴的下方",
+      "source": "apa7",
+      "automated": true,
+      "manual": true,
+      "limit": "只对本技能生成的图成立；外部导入的图需人工看有没有上/右边框与网格线"
+    },
+    {
+      "id": "PFT-FIG-006",
+      "scope": "figure",
+      "title": "图题写进文档，不画在图内",
+      "check": "无自动检查",
+      "source": "apa7",
+      "automated": false,
+      "manual": true,
+      "limit": "工具无法判断文档里有没有图题段落；make_diagram 的 title 字段只用于预览"
+    },
+    {
+      "id": "PFT-FIG-007",
+      "scope": "figure",
+      "title": "多面板缩放后有效字号不低于 8 pt",
+      "check": "合成时按统一缩放系数折算并报告",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只算字号；面板标签顺序是否与正文提及顺序一致需人工核对"
+    },
+    {
+      "id": "PFT-FIG-008",
+      "scope": "figure",
+      "title": "系列不靠颜色区分（灰度可辨）",
+      "check": "收集所有颜色，按亮度排序，报告亮度差 < 18 的颜色对",
+      "source": "internal",
+      "automated": true,
+      "manual": true,
+      "limit": "只看颜色亮度差，不判断两个颜色是否属于同一数据系列，也不判断线型/标记是否已提供冗余区分"
+    },
+    {
+      "id": "PFT-FIG-009",
+      "scope": "figure",
+      "title": "误差棒/置信带含义在图注中说明",
+      "check": "无自动检查",
+      "source": "apa7",
+      "automated": false,
+      "manual": true,
+      "limit": "工具能确认生成时有没有给区间，但无法确认文档图注里写没写「95% CI」"
+    },
+    {
+      "id": "PFT-FIG-010",
+      "scope": "figure",
+      "title": "不用阴影、渐变与 3D 效果",
+      "check": "扫描 filter / linearGradient / radialGradient 元素",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "只认这几种 SVG 元素；位图里的阴影查不到"
+    },
+    {
+      "id": "PFT-TBL-000",
+      "scope": "table",
+      "title": "表的结构性问题",
+      "check": "文档里没有表格、单元格残留空 run",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "结构层判断；不涉及具体排版规格"
+    },
+    {
+      "id": "PFT-TBL-001",
+      "scope": "table",
+      "title": "仅三条横线，无竖线",
+      "check": "读 tblBorders，left/right/insideV 必须为 nil",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "只查表格级边框；单元格级补画的线查不到"
+    },
+    {
+      "id": "PFT-TBL-002",
+      "scope": "table",
+      "title": "表头行有下边线",
+      "check": "跨前两行找 tcBorders/bottom",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "有分组表头时以「第一条有下边线的行」为表头末行，若作者画了多余横线会误判"
+    },
+    {
+      "id": "PFT-TBL-003",
+      "scope": "table",
+      "title": "前导零与档位一致",
+      "check": "APA 档下，r/β/p 省略前导零，B/SE/M/SD 保留；生成器把显式保留的列写进文档属性，检查器据此跳过",
+      "source": "apa7",
+      "automated": true,
+      "manual": true,
+      "limit": "检查器不知道每一列在统计上是什么量；只能按列报出「这一列有 0.xx」，由作者判断"
+    },
+    {
+      "id": "PFT-TBL-004",
+      "scope": "table",
+      "title": "同一列小数位一致",
+      "check": "逐列统计小数位，不一致即提示",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只提示，不替你补零——补零等于声明了不存在的精度"
+    },
+    {
+      "id": "PFT-TBL-005",
+      "scope": "table",
+      "title": "长表跨页重复表头、行不被切开",
+      "check": "生成时写入 tblHeader 与 cantSplit",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "只保证标记写进去了；Word 里实际分页效果需打开文件看"
+    },
+    {
+      "id": "PFT-TBL-006",
+      "scope": "table",
+      "title": "统计符号斜体、希腊字母不斜体",
+      "check": "生成器支持 <i> 标记；不判断作者用没用对",
+      "source": "apa7",
+      "automated": false,
+      "manual": true,
+      "limit": "M/SD/t/p/B/SE 应斜体，β/α/χ² 不斜体；这一条只能人工逐列核"
+    },
+    {
+      "id": "PFT-TBL-007",
+      "scope": "table",
+      "title": "表内每个缩写都在表注中定义",
+      "check": "无自动检查",
+      "source": "apa7",
+      "automated": false,
+      "manual": true,
+      "limit": "缩写识别需要领域词表，误报率太高，暂不做"
+    },
+    {
+      "id": "PFT-TBL-008",
+      "scope": "table",
+      "title": "表注顺序：通用 → 具体 → 概率",
+      "check": "生成器按此顺序写；审核外部表时无自动检查",
+      "source": "apa7",
+      "automated": false,
+      "manual": true,
+      "limit": "只能保证自家生成的表顺序正确"
+    },
+    {
+      "id": "PFT-TBL-009",
+      "scope": "table",
+      "title": "表题存在、在表格上方、对齐与字重符合 profile",
+      "check": "取表格前一段，按「表 N / Table N」识别；比对对齐、表号加粗、表题斜体",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "表题若放在文本框、页眉或表格内的合并单元格里，本检查看不到"
+    },
+    {
+      "id": "PFT-TBL-010",
+      "scope": "table",
+      "title": "表内字号在允许区间内且前后一致",
+      "check": "收集表内所有 run 的字号：超出 8–14 pt 报错，同一张表内不一致报提示",
+      "source": "apa7",
+      "automated": true,
+      "manual": false,
+      "limit": "按 Word 记录的字号算；不判断「该用 10.5 还是 12」——APA 允许 8–14，卡死一个值会误报"
+    },
+    {
+      "id": "PFT-TBL-011",
+      "scope": "table",
+      "title": "表头统计符号斜体、希腊字母不斜体",
+      "check": "逐 run 比对：M/SD/t/p/B/SE 等应为斜体，α/β/χ²/η² 应为正体",
+      "source": "apa7",
+      "automated": true,
+      "manual": true,
+      "limit": "只在整段文字恰好是某个符号时才判（避免把「M (SD)」误判）；正文与表注里的符号需人工看"
+    },
+    {
+      "id": "PFT-TBL-012",
+      "scope": "table",
+      "title": "单元格宽度与列网格一致（合并单元格后要重设宽度）",
+      "check": "逐个 tc 比对 tcW 与其跨过的 gridCol 之和，偏差超过 1 pt 即报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只比 dxa 单位；没有 tcW 的单元格跳过。列宽本身是否合理不在本项判断范围内"
+    },
+    {
+      "id": "PFT-TBL-013",
+      "scope": "table",
+      "title": "单元格宽度放得下它最长的单词（否则 Word 会从词中间断开）",
+      "check": "逐个单元格比 tcW 减去内边距与最长单词的估算宽度，不足即报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "按 Times 字宽估算，换字体后实际宽度有 5% 上下浮动；只查断词，不判断折行是否美观"
+    },
+    {
+      "id": "PFT-TBL-014",
+      "scope": "table",
+      "title": "表宽不超过版心（横向页的版心按页高计算）",
+      "check": "读 section 的实际页宽与左右边距，与表格列网格总宽比对，超出 1 pt 即报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只比总宽与版心；单元格内部是否拥挤、字号是否该缩，不在本项判断范围内"
+    },
+    {
+      "id": "PFT-TBL-015",
+      "scope": "table",
+      "title": "不出现负零（-0.00）",
+      "check": "逐格找「负号 + 全是 0」的写法",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只认 -0.00 这类；-0.004 不算"
+    },
+    {
+      "id": "PFT-TBL-016",
+      "scope": "table",
+      "title": "空缺不用连字符串（----）冒充破折号",
+      "check": "整格都是两个以上连字符即提示",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只认整格；格内混排不查"
+    },
+    {
+      "id": "PFT-EXP-000",
+      "scope": "export",
+      "title": "导出文件不可读或类型不支持",
+      "check": "读不出文件头、后缀不在支持范围",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只判断能否解析；解析成功不代表内容正确"
+    },
+    {
+      "id": "PFT-EXP-001",
+      "scope": "export",
+      "title": "位图分辨率不低于 300 dpi",
+      "check": "读 PNG 的 pHYs 块；TIFF 需 Pillow",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只读文件里的 DPI 元数据；有的软件不写这个块，此时报「无法判定」而不是通过"
+    },
+    {
+      "id": "PFT-EXP-002",
+      "scope": "export",
+      "title": "位图不带透明通道",
+      "check": "PNG 的 color type 4/6 或存在 tRNS 块即报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只查文件头，不查像素里是否实际含半透明像素"
+    },
+    {
+      "id": "PFT-EXP-003",
+      "scope": "export",
+      "title": "PDF 字体已嵌入、无 Type 3",
+      "check": "用 PyMuPDF 读页面字体表",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "没有 PyMuPDF 时报「未检查」，不报通过；不判断字体是否为目标期刊指定字体"
+    },
+    {
+      "id": "PFT-EXP-004",
+      "scope": "export",
+      "title": "无替换字符、私用区字符与未分配码位",
+      "check": "扫 SVG/PDF 文本里的 U+FFFD、E000–F8FF、Cn、控制字符",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只报可疑码位；是否真的缺字要看渲染结果（PFT-EXP-005 覆盖字形层面）"
+    },
+    {
+      "id": "PFT-EXP-005",
+      "scope": "export",
+      "title": "声明的字体包含所用字形",
+      "check": "用 matplotlib 的 FT2Font charmap 查字",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "查的是本机字体；目标机器字体不同，仍需在排版机上复核。没有 matplotlib 时报「未检查」"
+    },
+    {
+      "id": "PFT-EXP-006",
+      "scope": "export",
+      "title": "导出文件的物理尺寸与画布一致",
+      "check": "读 PDF 页面框 / 位图像素÷DPI，与 SVG 的 pt 尺寸比对",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只比对首页尺寸；多页 PDF 需人工看"
+    },
+    {
+      "id": "PFT-EXP-007",
+      "scope": "export",
+      "title": "PDF 页面上不能什么都没有",
+      "check": "逐页看矢量图元数、文本层与嵌入图片，全为空的页报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只判断有没有东西，不判断内容对不对"
+    },
+    {
+      "id": "PFT-QC-001",
+      "scope": "report",
+      "title": "报告不构成合规认证",
+      "check": "每份 JSON 报告都写 publication_ready_claim: false",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "本报告只覆盖规则目录里列明的自动检查项；PASS 不等于符合目标期刊或学校的全部要求"
+    },
+    {
+      "id": "PFT-QC-002",
+      "scope": "report",
+      "title": "表内每个数字都能在来源材料中找到",
+      "check": "docx 表内数字（多重集）与 PDF/文本来源比对，只报「找不到」",
+      "source": "internal",
+      "automated": true,
+      "manual": true,
+      "limit": "只查「有没有」：查不到位置（数字对但放错格子），也查不到符号（文本层常丢负号）"
+    },
+    {
+      "id": "PFT-QC-003",
+      "scope": "report",
+      "title": "符号需对着渲染图核对",
+      "check": "比对 docx 的负数个数与来源文本层的负号个数，少了就提醒",
+      "source": "internal",
+      "automated": true,
+      "manual": true,
+      "limit": "文本层丢负号时无法机器核对；只能高 DPI 裁图目视。本轮复刻中 8 个负号在文本层里全丢"
+    },
+    {
+      "id": "PFT-AUD-000",
+      "scope": "audit",
+      "title": "有依赖缺失或文件类型不支持时，如实报「未检查」",
+      "check": "按扩展名与可选依赖是否可用判断",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只交代没查什么，不代替人工结论"
+    },
+    {
+      "id": "PFT-AUD-001",
+      "scope": "audit",
+      "title": "位图分辨率不低于 300 dpi",
+      "check": "读 PNG/JPEG 的 DPI 元数据；无元数据时只提示，不按像素猜物理尺寸",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只读文件里的声明值，不判断原始出处的真实精度"
+    },
+    {
+      "id": "PFT-AUD-002",
+      "scope": "audit",
+      "title": "位图像素宽度够铺满版心",
+      "check": "按 min_dpi × 版心宽 反推所需像素，不足六成即判必须改",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只比像素数；图是否真的满幅由作者决定"
+    },
+    {
+      "id": "PFT-AUD-003",
+      "scope": "audit",
+      "title": "图表应为白底",
+      "check": "统计接近纯白的像素占比，低于 55% 提示",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "浅灰底也算有色底；照片与复杂位图跳过本项"
+    },
+    {
+      "id": "PFT-AUD-004",
+      "scope": "audit",
+      "title": "四边不应有与内部不同的纯色条带（截图特征）",
+      "check": "取四条边上的采样行，若为单一颜色且与中心色差 > 90 即提示",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只在颜色数较少的图上判断；正常带边框的图可能被误报，需人确认"
+    },
+    {
+      "id": "PFT-AUD-005",
+      "scope": "audit",
+      "title": "彩色系列在黑白打印时仍可区分",
+      "check": "把主要颜色换算成灰度，两两亮度差 < 12 即提示",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "按亮度换算；实际印刷的网点响应会有出入"
+    },
+    {
+      "id": "PFT-AUD-006",
+      "scope": "audit",
+      "title": "工作簿里应当有图表（或说明只有数据）",
+      "check": "找 xl/charts/chartN.xml",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "图片形式的图表不在其中"
+    },
+    {
+      "id": "PFT-AUD-007",
+      "scope": "audit",
+      "title": "不用饼图 / 圆环 / 雷达 / 复合饼图",
+      "check": "读图表类型标签",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "若作者能论证必要，需在图注说明"
+    },
+    {
+      "id": "PFT-AUD-008",
+      "scope": "audit",
+      "title": "不用 3D 图",
+      "check": "读图表类型标签（*3DChart）",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只认标签，不看渲染效果"
+    },
+    {
+      "id": "PFT-AUD-009",
+      "scope": "audit",
+      "title": "不用网格线",
+      "check": "查 majorGridlines 标签",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "手动画的网格线查不到"
+    },
+    {
+      "id": "PFT-AUD-010",
+      "scope": "audit",
+      "title": "图例不放在右侧或底部",
+      "check": "读 legendPos",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只读位置；图例是否其实多余需人判断"
+    },
+    {
+      "id": "PFT-AUD-011",
+      "scope": "audit",
+      "title": "坐标轴有标题",
+      "check": "读 chart 的 title 元素",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "文本框写的轴标题查不到"
+    },
+    {
+      "id": "PFT-AUD-012",
+      "scope": "audit",
+      "title": "图内字号不小于 8 pt",
+      "check": "读显式声明的 sz（1/100 pt）",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "继承默认字号的查不到"
+    },
+    {
+      "id": "PFT-AUD-013",
+      "scope": "audit",
+      "title": "不用颜色作为唯一区分手段",
+      "check": "统计显式声明的非黑白 RGB 色，≥3 种即提示",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只统计显式 RGB；主题色查不到"
+    },
+    {
+      "id": "PFT-AUD-014",
+      "scope": "audit",
+      "title": "图表结构层面无硬伤（信息项）",
+      "check": "上面各项都没报问题时给出",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "不判断图表类型选得对不对、数据放错轴、结论是否成立"
+    },
+    {
+      "id": "PFT-AUD-015",
+      "scope": "audit",
+      "title": "PDF 里应当是矢量而不是截图",
+      "check": "比对页内图像数与矢量图元、文本层",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "不逐个测量嵌入图的有效分辨率"
+    },
+    {
+      "id": "PFT-AUD-016",
+      "scope": "audit",
+      "title": "PDF 里嵌入图的有效分辨率不低于 300 dpi",
+      "check": "按「像素数 ÷ 放置尺寸（英寸）」逐张算，低于阈值即报错",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只算位图；矢量图不参与。文件里写的 DPI 元数据在 PDF 里不起作用"
+    },
+    {
+      "id": "PFT-AUD-017",
+      "scope": "audit",
+      "title": "全篇嵌图是否都是位图（信息/提示项）",
+      "check": "统计全篇嵌入图的数量、格式与有效分辨率区间",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只量分辨率与格式；JPEG 的压缩伪影无法量化"
+    },
+    {
+      "id": "PFT-AUD-018",
+      "scope": "audit",
+      "title": "多页文档逐页无硬伤时给出说明（信息项）",
+      "check": "页数 > 3 且各项都没报问题时给出",
+      "source": "internal",
+      "automated": true,
+      "manual": false,
+      "limit": "只覆盖「有无矢量内容、嵌图清晰度」；单张图的设计问题要逐图看"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "_note": "示例数据，仅示范版式。换成你的真实结果，并删掉本行。",
+  "number": "3",
+  "profile": "apa7",
+  "title": "Mediation of Brand Trust on Purchase Intention Through Affective Commitment",
+  "columns": [
+    {"key": "path", "label": "Path / Effect"},
+    {"key": "est", "label": "Estimate", "decimals": 3, "leading_zero": true},
+    {"key": "se", "label": "<i>SE</i>", "decimals": 3, "leading_zero": true},
+    {"key": "t", "label": "<i>t</i>", "decimals": 2, "leading_zero": true},
+    {"key": "p", "label": "<i>p</i>"},
+    {"key": "ll", "label": "LL", "decimals": 3, "leading_zero": true},
+    {"key": "ul", "label": "UL", "decimals": 3, "leading_zero": true}
+  ],
+  "spanners": [
+    {"label": "95% CI", "span": ["ll", "ul"]}
+  ],
+  "rows": [
+    {"path": "a: Trust → Commitment", "est": "0.531", "se": "0.061", "t": "8.70", "p": "< .001", "ll": "0.411", "ul": "0.651"},
+    {"path": "b: Commitment → Intention", "est": "0.287", "se": "0.055", "t": "5.22", "p": "< .001", "ll": "0.179", "ul": "0.395"},
+    {"path": "c′: Trust → Intention (direct)", "est": "0.156", "se": "0.052", "t": "3.00", "p": ".003", "ll": "0.054", "ul": "0.258"},
+    {"path": "Indirect effect a × b", "est": "0.152", "se": "0.038", "t": "—", "p": "—", "ll": "0.083", "ul": "0.229"}
+  ],
+  "notes": {
+    "general": "<i>N</i> = 344. Coefficients are unstandardized; <i>SE</i> and <i>t</i> for paths are OLS, the indirect effect is bootstrapped with 5,000 resamples (bias-corrected, 95% CI). An indirect effect is inferred when its CI excludes zero.",
+    "probability": "<i>p</i> values are two-tailed."
+  }
+}

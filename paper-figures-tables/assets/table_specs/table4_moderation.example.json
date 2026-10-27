@@ -1,0 +1,32 @@
+{
+  "_note": "示例数据，仅示范版式。换成你的真实结果，并删掉本行。",
+  "number": "4",
+  "profile": "apa7",
+  "title": "Moderating Role of Brand Familiarity in the Trust–Intention Relationship",
+  "columns": [
+    {"key": "pred", "label": "Predictor / Effect"},
+    {"key": "b", "label": "<i>B</i>", "decimals": 3, "leading_zero": true},
+    {"key": "se", "label": "<i>SE</i>", "decimals": 3, "leading_zero": true},
+    {"key": "t", "label": "<i>t</i>", "decimals": 2, "leading_zero": true},
+    {"key": "p", "label": "<i>p</i>"},
+    {"key": "ll", "label": "LL", "decimals": 3, "leading_zero": true},
+    {"key": "ul", "label": "UL", "decimals": 3, "leading_zero": true}
+  ],
+  "spanners": [
+    {"label": "95% CI", "span": ["ll", "ul"]}
+  ],
+  "rows": [
+    {"pred": "A. Regression coefficients", "b": "", "se": "", "t": "", "p": "", "ll": "", "ul": ""},
+    {"pred": "  Brand trust (X)", "b": "0.471", "se": "0.058", "t": "8.12", "p": "< .001", "ll": "0.357", "ul": "0.585"},
+    {"pred": "  Familiarity (W)", "b": "0.205", "se": "0.058", "t": "3.53", "p": "< .001", "ll": "0.091", "ul": "0.319"},
+    {"pred": "  X × W", "b": "0.183", "se": "0.049", "t": "3.73", "p": "< .001", "ll": "0.087", "ul": "0.279"},
+    {"pred": "B. Conditional effect of X at values of W", "b": "", "se": "", "t": "", "p": "", "ll": "", "ul": ""},
+    {"pred": "  −1 SD (2.88)", "b": "0.288", "se": "0.071", "t": "4.06", "p": "< .001", "ll": "0.149", "ul": "0.427"},
+    {"pred": "  Mean (4.02)", "b": "0.471", "se": "0.058", "t": "8.12", "p": "< .001", "ll": "0.357", "ul": "0.585"},
+    {"pred": "  +1 SD (5.16)", "b": "0.654", "se": "0.079", "t": "8.28", "p": "< .001", "ll": "0.499", "ul": "0.809"}
+  ],
+  "notes": {
+    "general": "<i>N</i> = 344. Dependent variable = purchase intention. X and W were mean-centered before forming the product term; <i>M</i><sub>W</sub> = 4.02, <i>SD</i><sub>W</sub> = 1.14. Adding X × W increased <i>R</i>² by .03, <i>F</i>(1, 340) = 13.9, <i>p</i> < .001.",
+    "probability": "<i>p</i> values are two-tailed."
+  }
+}

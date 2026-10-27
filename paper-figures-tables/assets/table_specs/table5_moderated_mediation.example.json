@@ -1,0 +1,34 @@
+{
+  "_note": "示例数据，仅示范版式。换成你的真实结果，并删掉本行。",
+  "number": "5",
+  "profile": "apa7",
+  "title": "Conditional Indirect Effect of Brand Trust on Purchase Intention Through Commitment at Levels of Brand Familiarity",
+  "columns": [
+    {"key": "effect", "label": "Effect"},
+    {"key": "est", "label": "Estimate", "decimals": 3, "leading_zero": true},
+    {"key": "se", "label": "<i>SE</i>", "decimals": 3, "leading_zero": true},
+    {"key": "ll", "label": "LL", "decimals": 3, "leading_zero": true},
+    {"key": "ul", "label": "UL", "decimals": 3, "leading_zero": true}
+  ],
+  "spanners": [
+    {"label": "95% CI", "span": ["ll", "ul"]}
+  ],
+  "rows": [
+    {"effect": "A. Path coefficients", "est": "", "se": "", "ll": "", "ul": ""},
+    {"effect": "  X → M (a)", "est": "0.412", "se": "0.061", "ll": "0.292", "ul": "0.532"},
+    {"effect": "  W → M", "est": "0.205", "se": "0.058", "ll": "0.091", "ul": "0.319"},
+    {"effect": "  X × W → M (a₃)", "est": "0.073", "se": "0.031", "ll": "0.012", "ul": "0.134"},
+    {"effect": "  M → Y (b)", "est": "0.287", "se": "0.055", "ll": "0.179", "ul": "0.395"},
+    {"effect": "  X → Y (c′)", "est": "0.156", "se": "0.052", "ll": "0.054", "ul": "0.258"},
+    {"effect": "B. Conditional indirect effect of X on Y through M", "est": "", "se": "", "ll": "", "ul": ""},
+    {"effect": "  W = 2.88 (−1 SD)", "est": "0.118", "se": "0.041", "ll": "0.043", "ul": "0.205"},
+    {"effect": "  W = 4.02 (mean)", "est": "0.144", "se": "0.038", "ll": "0.074", "ul": "0.223"},
+    {"effect": "  W = 5.16 (+1 SD)", "est": "0.170", "se": "0.047", "ll": "0.083", "ul": "0.268"},
+    {"effect": "C. Index of moderated mediation", "est": "", "se": "", "ll": "", "ul": ""},
+    {"effect": "  Index (a₃ × b)", "est": "0.021", "se": "0.012", "ll": "0.003", "ul": "0.048"}
+  ],
+  "notes": {
+    "general": "<i>N</i> = 344. X = brand trust, M = affective commitment, Y = purchase intention, W = brand familiarity. X and W were mean-centered. Path coefficients use OLS standard errors; conditional indirect effects and the index of moderated mediation are bootstrapped with 5,000 resamples (bias-corrected, 95% CI). Moderated mediation is inferred when the CI of the index excludes zero. Model corresponds to PROCESS Model 7 (W moderates the a path).",
+    "specific": ["W values are reported at −1 <i>SD</i>, the mean, and +1 <i>SD</i>; <i>M</i><sub>W</sub> = 4.02, <i>SD</i><sub>W</sub> = 1.14."]
+  }
+}

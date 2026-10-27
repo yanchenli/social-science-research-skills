@@ -1,0 +1,24 @@
+{
+  "_note": "示例数据，仅示范版式。换成你的真实结果，并删掉本行。",
+  "number": "1",
+  "profile": "apa7",
+  "title": "Descriptive Statistics, Reliability, and Correlations",
+  "columns": [
+    {"key": "v", "label": "Variable"},
+    {"key": "m", "label": "<i>M</i>", "decimals": 2, "leading_zero": true},
+    {"key": "sd", "label": "<i>SD</i>", "decimals": 2, "leading_zero": true},
+    {"key": "a", "label": "α", "decimals": 2},
+    {"key": "c1", "label": "1"},
+    {"key": "c2", "label": "2"},
+    {"key": "c3", "label": "3"}
+  ],
+  "rows": [
+    {"v": "1. Brand trust", "m": "4.21", "sd": "1.08", "a": ".89", "c1": "—", "c2": "", "c3": ""},
+    {"v": "2. Affective commitment", "m": "3.97", "sd": "1.14", "a": ".87", "c1": ".53**", "c2": "—", "c3": ""},
+    {"v": "3. Purchase intention", "m": "3.80", "sd": "1.21", "a": ".91", "c1": ".47**", "c2": ".42**", "c3": "—"}
+  ],
+  "notes": {
+    "general": "<i>N</i> = 344. α = Cronbach's alpha. Values on the diagonal are not applicable. Correlations are Pearson two-tailed.",
+    "probability": "**<i>p</i> < .01."
+  }
+}

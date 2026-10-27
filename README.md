@@ -13,7 +13,7 @@
 **中文** | [English](README.en.md)
 
 面向**管理学、营销学、消费者行为学、组织行为学**方向的研究生（MS / PhD / DBA）
-与指导教师的 AI 方法学助手技能包。18 个技能覆盖从**现象到问题**、读文献提变量、选题、系统综述、
+与指导教师的 AI 方法学助手技能包。19 个技能覆盖从**现象到问题**、读文献提变量、选题、系统综述、
 设计、数据准备、测量、分析、写作到**选刊投稿**、核查、评审与审稿回应的完整研究链路。
 
 ---
@@ -23,7 +23,7 @@
 **这是方法学辅导与规范检查工具，不是代写工具。**
 
 技能包帮你把「该怎么做、该怎么报」讲清楚，**不替你产生研究结论，也不替你判断**。
-18 个技能内部都写入了硬约束，其中最重要的是：
+19 个技能内部都写入了硬约束，其中最重要的是：
 
 | 约束 | 出处 |
 |---|---|
@@ -92,6 +92,7 @@
 | [`quant-data-analysis`](quant-data-analysis/) | 数据筛查、ANOVA/ANCOVA、回归调节的实际执行（含脚本） | 基础**统计** | SKILL.md + 2 refs + 4 scripts |
 | [`sem-analysis-tutor`](sem-analysis-tutor/) | 手把手带你完成 SEM 分析全流程（CB-SEM / PLS-SEM 双轨） | **SEM** 分析 | SKILL.md + 12 个 references |
 | [`stats-results-writer`](stats-results-writer/) | 把统计软件输出转成规范的 APA 报告段落（中/英） | 结果**报告** | SKILL.md + 8 个 references |
+| [`paper-figures-tables`](paper-figures-tables/) | APA 三线表、概念框架/测量/结构模型图、交互与估计图、多系列折线；横向页与一格多行；并能审学生交上来的图表 | **图表制作与质检** | SKILL.md + 5 refs + 21 scripts |
 | [`discussion-conclusion-writer`](discussion-conclusion-writer/) | 理论贡献、实践启示、局限与结论段（Whetten / Corley & Gioia / Bartunek & Rynes） | 论文**写作（后段）** | SKILL.md + 1 个 references |
 | [`journal-submission`](journal-submission/) | 论文定档、候选刊检索、匹配度与 desk reject 风险、投稿准备 | **选刊与投稿** | SKILL.md + 4 refs |
 
@@ -112,7 +113,7 @@
 
 ## 建议的使用顺序
 
-这 18 个技能沿**研究流程**衔接，另有两支旁支：
+这 19 个技能沿**研究流程**衔接，另有两支旁支：
 
 ```
 ① 从现象到问题 phenomenon-to-question
@@ -132,7 +133,7 @@
 ⑧ SEM          sem-analysis-tutor
       ↓
 ⑨ 结果写作     stats-results-writer
-      ↓
+      ↓   ↕ 出表出图：paper-figures-tables
 ⑩ 讨论与结论   discussion-conclusion-writer
       ↓
 ⑪ 核查与投稿   academic-citation-auditor → management-paper-reviewer
@@ -145,6 +146,9 @@
 写作线是**贯穿**的，不排在最后：Introduction 与 Literature Review 通常在收数据之前
 就要动笔，拿到结果后再回改；`academic-citation-auditor` 在定稿前做最后一道引用自查。
 
+图表线也是**贯穿**的：结果一出来就要出表出图，改稿时表里的数字跟着改——
+所以 `paper-figures-tables` 与 `stats-results-writer` 之间是**双向**的（图中的 ↕）。
+
 - **有一个现象，但不知道该研究什么** → `phenomenon-to-question`
 - **要读一批论文、把变量与量表整理成表** → `paper-variable-extraction`
 - **只有一个宽泛主题，不知道该研究什么** → `literature-gap-synthesizer`
@@ -156,6 +160,7 @@
 - **数据收好了，要跑 ANOVA / 回归** → `quant-data-analysis`
 - **要跑 SEM / 中介** → `sem-analysis-tutor`
 - **跑完要写 Results** → `stats-results-writer`
+- **要把结果做成 APA 表、画概念框架或路径图、审学生交上来的图表** → `paper-figures-tables`
 - **结果写完了，不知道怎么讲贡献** → `discussion-conclusion-writer`
 - **做的是访谈/案例** → `qualitative-research-methods`
 - **论文定稿前自查引用** → `academic-citation-auditor`
@@ -185,7 +190,10 @@
 7. **`journal-submission` vs `management-paper-reviewer`** —— 前者判**档位与去哪投**；
    后者判**这篇稿子本身好不好**。投稿前建议先用后者挑刺、再用前者选刊——
    顺序反了会按期刊偏好倒推评语。
-8. **`phenomenon-to-question` vs `literature-gap-synthesizer`** —— 区别在**起点**：
+8. **`paper-figures-tables` vs `stats-results-writer`** —— 前者管**呈现**，后者管**文字**：
+   同一批数字，`stats-results-writer` 写成 Results 段落，`paper-figures-tables` 做成三线表与图。
+   两者报的数必须一致——这也是它们必须交接的原因。
+9. **`phenomenon-to-question` vs `literature-gap-synthesizer`** —— 区别在**起点**：
    前者从**现象**出发（"我观察到 X，这能不能做研究"），产出研究问题；
    后者从**主题/构念**出发（"我想研究 X，文献缺什么"），产出研究定位。
    用户只有一个模糊的观察时先走前者，已有明确构念时直接走后者。
@@ -209,7 +217,7 @@
 > 同名技能以后者被前者覆盖。
 
 ```bash
-# 例：安装全部 18 个技能到 Claude Code
+# 例：安装全部 19 个技能到 Claude Code
 git clone https://github.com/yanchenli/social-science-research-skills.git
 # 锁定版本：不写下面这行就会跟随 main，日后仓库更新会被静默带入
 git -C social-science-research-skills checkout v3.1.1
@@ -262,6 +270,7 @@ cp -r social-science-research-skills/*/ ~/.claude/skills/
 > - `quant-data-analysis` 与 `research-data-preparation`：`pandas` / `numpy` / `scipy` /
 >   `statsmodels` / `openpyxl`，读取 SPSS 数据还需要 `pyreadstat`；
 > - `paper-variable-extraction`：只需 `openpyxl`；
+> - `paper-figures-tables`：生成 .docx 需要 `python-docx`（必需）；另存 PDF/PNG 需要 `matplotlib`，查 PDF 需要 `PyMuPDF`，查位图需要 `Pillow`——后三个缺了只会少一项能力，不会报错；
 > - `systematic-review` 的三个脚本**只用 Python 标准库**，无需安装任何包。
 >
 > ```bash

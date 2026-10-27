@@ -358,3 +358,15 @@ For scale information cards and Methods-section draft wording, see
 | Over-adaptation | Deleting dimensions, reversing item direction, no pre-test | Beyond word substitution → pre-test + EFA + justify in Methods |
 | Copyright violation | Using MBTI, Gallup Q12 without permission | Check copyright; commercial scales need written authorisation |
 | Skipping supervisor | Full workflow done without supervisor input | Check in at construct selection AND adapted-scale finalisation |
+
+## 交接：从哪来、到哪去
+
+| 方向 | 技能 | 交接什么 |
+|---|---|---|
+| 上游 | `social-science-experiment-designer` | 实验设计定下的构念清单：要测哪几个变量、各自是什么角色 |
+| 上游 | `phenomenon-to-question` / `literature-gap-synthesizer` | 构念从哪个现象或哪处缺口来——决定该找哪一类量表 |
+| 下游 | `research-data-preparation` | 量表定了，接着定问卷怎么发、回收后怎么清洗、缺失值怎么处理 |
+| 下游 | `quant-data-analysis` / `sem-analysis-tutor` | 带着题项与计分方式进分析：哪些题反向计分、维度怎么合成 |
+
+**单独使用**：给我一个构念名就能开始——澄清内涵外延、找候选量表、评估质量、做中英互译与改编。
+上游技能不按任何特定格式交付也能用，本技能不读它们的文件，只读你给的构念与情境。

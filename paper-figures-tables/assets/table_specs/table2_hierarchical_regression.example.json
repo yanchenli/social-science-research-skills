@@ -1,0 +1,31 @@
+{
+  "_note": "示例数据，仅示范版式。换成你的真实结果，并删掉本行。",
+  "number": "2",
+  "profile": "apa7",
+  "title": "Hierarchical Regression Predicting Purchase Intention",
+  "columns": [
+    {"key": "pred", "label": "Predictor"},
+    {"key": "b", "label": "<i>B</i>", "decimals": 2, "leading_zero": true},
+    {"key": "se", "label": "<i>SE</i>", "decimals": 2, "leading_zero": true},
+    {"key": "beta", "label": "β", "decimals": 2},
+    {"key": "t", "label": "<i>t</i>", "decimals": 2, "leading_zero": true},
+    {"key": "p", "label": "<i>p</i>"},
+    {"key": "ll", "label": "LL", "decimals": 2, "leading_zero": true},
+    {"key": "ul", "label": "UL", "decimals": 2, "leading_zero": true}
+  ],
+  "spanners": [
+    {"label": "95% CI", "span": ["ll", "ul"]}
+  ],
+  "rows": [
+    {"pred": "Step 1", "b": "", "se": "", "beta": "", "t": "", "p": "", "ll": "", "ul": ""},
+    {"pred": "  Brand trust", "b": "0.52", "se": "0.07", "beta": "0.48", "t": "7.43", "p": "< .001", "ll": "0.38", "ul": "0.66"},
+    {"pred": "  Brand familiarity<sup>a</sup>", "b": "0.18", "se": "0.06", "beta": "0.17", "t": "3.00", "p": ".003", "ll": "0.06", "ul": "0.30"},
+    {"pred": "Step 2", "b": "", "se": "", "beta": "", "t": "", "p": "", "ll": "", "ul": ""},
+    {"pred": "  Trust × Commitment", "b": "0.21", "se": "0.05", "beta": "0.24", "t": "4.20", "p": "< .001", "ll": "0.11", "ul": "0.31"}
+  ],
+  "notes": {
+    "general": "<i>N</i> = 344. Dependent variable = purchase intention. <i>B</i> = unstandardized coefficient; β = standardized coefficient. Step 1: <i>R</i>² = .31, <i>F</i>(2, 341) = 76.5, <i>p</i> < .001. Step 2: Δ<i>R</i>² = .05, <i>F</i>(1, 340) = 17.6, <i>p</i> < .001.",
+    "specific": ["Reference group = low brand familiarity."],
+    "probability": "*<i>p</i> < .05. **<i>p</i> < .01. ***<i>p</i> < .001."
+  }
+}

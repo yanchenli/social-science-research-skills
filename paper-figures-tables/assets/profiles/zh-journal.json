@@ -1,0 +1,78 @@
+{
+  "profile_id": "zh-journal",
+  "label": "中文期刊（通用三线表）",
+  "status": "convention",
+  "language": "zh",
+  "source": "GB/T 7713 与各刊稿约的通行做法；未见某一本刊的原文，故状态为 convention",
+  "verified_on": "2026-10-26",
+  "source_clauses": {
+    "表题位置": "表序与表题居中，置于表上方，「表1  标题」",
+    "边框": "三线表：顶线与底线 1.5 pt，栏目线 0.75 pt",
+    "表注": "表下方，以「注：」起头，不用斜体",
+    "前导零": "保留前导零（与 APA 相反）",
+    "图题位置": "图题居中置于图下方",
+    "图内文字": "不小于六号（7.5 pt）；中文用宋体、西文用 Times New Roman"
+  },
+  "table": {
+    "font": "SimSun",
+    "size": 9.0,
+    "title_font": "SimHei",
+    "number_bold": true,
+    "title_italic": false,
+    "title_align": "center",
+    "title_on_separate_line": false,
+    "header_bold": false,
+    "header_align": "center",
+    "rule_top": 12,
+    "rule_header": 6,
+    "rule_bottom": 12,
+    "note_prefix": "注：",
+    "note_italic_prefix": false,
+    "note_size": 9.0,
+    "leading_zero": true,
+    "cell_pad": 2.5,
+    "first_col_align": "left"
+  },
+  "figure": {
+    "caption_position": "below",
+    "min_text_pt": 7.5,
+    "max_text_pt": 14.0,
+    "width_in": 6.5,
+    "min_dpi": 300,
+    "font_family": "serif"
+  },
+  "pending_confirmation": [
+    {
+      "clause": "表题",
+      "question": "表序与表题是同一行还是分两行？",
+      "provisional": "同一行、居中"
+    },
+    {
+      "clause": "字号",
+      "question": "表内用五号（10.5 pt）还是小五（9 pt）？",
+      "provisional": "9 pt"
+    }
+  ],
+  "unsupported": [],
+  "manual_checks": [
+    {
+      "what": "各刊对表题位置、字号、线宽的具体规定（本 profile 只是通行做法）"
+    },
+    {
+      "what": "续表编号写法（续表 1 / 表 1 续）"
+    }
+  ],
+  "unspecified_defaults": [
+    "线宽 1.5/0.75 pt 取多数期刊的取值，个别刊要求 1 pt",
+    "页面按 Letter 计算；中文期刊多为 A4（版心约 451.5 pt），投稿前把 page.size 改成 a4 并核对版心"
+  ],
+  "page": {
+    "size": "letter",
+    "margins_in": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "profile_id": "apa7",
+  "label": "APA 7（英文期刊）",
+  "status": "documented",
+  "language": "en",
+  "source": "APA 第 7 版手册第 7 章（Tables and Figures）；在线入口 https://apastyle.apa.org/style-grammar-guidelines/tables-figures",
+  "verified_on": "2026-10-26",
+  "source_clauses": {
+    "表题位置": "表号与表题在表上方：表号加粗独占一行，表题斜体在下一行，左对齐",
+    "边框": "仅三条横线：顶线、表头下、底线；不画竖线，不画内部横线",
+    "表注": "表下方，顺序为通用注（Note. 斜体）→ 具体注（上标 a、b、c）→ 概率注",
+    "前导零": "不超过 1 的统计量（r、p、α、β）省略前导零；均值、标准差、B、SE 保留",
+    "图题位置": "图号与图题在图上方",
+    "字号": "图表内文字 8–14 pt，可与正文不同",
+    "图幅": "版心宽 6.5 in（Letter + 1 in 边距）；半幅 3.25 in"
+  },
+  "table": {
+    "font": "Times New Roman",
+    "size": 10.5,
+    "title_font": "Times New Roman",
+    "number_bold": true,
+    "title_italic": true,
+    "title_align": "left",
+    "title_on_separate_line": true,
+    "header_bold": false,
+    "header_align": "center",
+    "rule_top": 8,
+    "rule_header": 4,
+    "rule_bottom": 8,
+    "note_prefix": "Note.",
+    "note_italic_prefix": true,
+    "note_size": 9.5,
+    "leading_zero": false,
+    "cell_pad": 3.0,
+    "first_col_align": "left"
+  },
+  "figure": {
+    "caption_position": "above",
+    "min_text_pt": 8.0,
+    "max_text_pt": 14.0,
+    "width_in": 6.5,
+    "min_dpi": 300,
+    "font_family": "sans"
+  },
+  "pending_confirmation": [],
+  "unsupported": [],
+  "manual_checks": [
+    {
+      "what": "图题是否真的写进了文档（工具不画图题）"
+    },
+    {
+      "what": "统计符号斜体是否用对（M/SD/t/p/B/SE 斜体，β/α/χ² 不斜体）"
+    },
+    {
+      "what": "表内每个缩写是否都在表注中定义"
+    }
+  ],
+  "unspecified_defaults": [
+    "表内字号 10.5 pt 是本技能的默认取值；APA 允许 8–14 pt，可按目标刊调整",
+    "表注字号 9.5 pt 小于表体，属常规做法，APA 未单独规定",
+    "页面按 Letter（8.5 × 11 in）计算；APA 允许把过宽的表放在横向页上，横向版心 9 in（648 pt）。若目标刊要求 A4，把 page.size 改成 a4"
+  ],
+  "page": {
+    "size": "letter",
+    "margins_in": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  }
+}

@@ -255,3 +255,16 @@ license: CC-BY-4.0
 | `references/materials-design.md` | 操纵材料设计指南、常见范式库、Pilot 设计模板 | 进入第 4 步前 |
 | `references/analysis-planning.md` | 统计分析策略规划：ANOVA、中介、调节、有调节的中介、软件选择 | 进入第 6 步前（与功效分析同步） |
 | `references/deliverables.md` | 六个交付文件的完整内容规范 | 进入第 7 步前 |
+
+## 交接：从哪来、到哪去
+
+| 方向 | 技能 | 交接什么 |
+|---|---|---|
+| 上游 | `phenomenon-to-question` | 从现象转成的可研究问题 |
+| 上游 | `literature-gap-synthesizer` / `systematic-review` | 文献缺口：已有研究做到哪、还差什么 |
+| 下游 | `scale-research` | 实验要测的构念与操纵检查用的量表 |
+| 下游 | `research-data-preparation` | 设计定了，接着定数据计划：样本量、剔除规则、缺失值 |
+| 下游 | `paper-figures-tables` | 概念框架图与假设模型图——调节变量指向**边**，不指向节点 |
+
+**单独使用**：给一个研究问题就能产出六个交付文件（设计文档、SOP、跨实验论证地图、
+方法部分提纲、预注册、IRB 草案），不需要上游提供任何材料。

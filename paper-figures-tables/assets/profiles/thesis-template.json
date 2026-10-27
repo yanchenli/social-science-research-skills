@@ -1,0 +1,85 @@
+{
+  "profile_id": "thesis-template",
+  "label": "学位论文模板（待按学校规范填写）",
+  "status": "template",
+  "language": "zh",
+  "source": "尚未取得任何学校的《学位论文格式规范》原文；本文件只是待填写的骨架",
+  "verified_on": null,
+  "source_clauses": {},
+  "table": {
+    "font": "SimSun",
+    "size": 10.5,
+    "title_font": "SimHei",
+    "number_bold": false,
+    "title_italic": false,
+    "title_align": "center",
+    "title_on_separate_line": false,
+    "header_bold": false,
+    "header_align": "center",
+    "rule_top": 12,
+    "rule_header": 6,
+    "rule_bottom": 12,
+    "note_prefix": "注：",
+    "note_italic_prefix": false,
+    "note_size": 9.0,
+    "leading_zero": true,
+    "cell_pad": 2.5,
+    "first_col_align": "left"
+  },
+  "figure": {
+    "caption_position": "below",
+    "min_text_pt": 7.5,
+    "max_text_pt": 14.0,
+    "width_in": 6.5,
+    "min_dpi": 300,
+    "font_family": "serif"
+  },
+  "pending_confirmation": [
+    {
+      "clause": "全篇",
+      "question": "学校的格式规范原文是什么？没有原文时本 profile 的每一项都未核对",
+      "provisional": "沿用中文期刊通行做法"
+    }
+  ],
+  "unsupported": [
+    {
+      "clause": "全框线",
+      "what": "只做三线表；学校要求全框线时需手工补线",
+      "handling": "生成后到 Word 里补，或在 profile 里说明改用其他工具"
+    },
+    {
+      "clause": "按章编号",
+      "what": "表号只支持顺序号（表 1、表 2），不支持 3-1 这类按章编号",
+      "handling": "生成后手工改表号，或把 number 字段直接写成字符串"
+    }
+  ],
+  "manual_checks": [
+    {
+      "what": "表题是否需按章编号（表 3-1）"
+    },
+    {
+      "what": "图表是否集中放在文末或附录"
+    },
+    {
+      "what": "是否需要单独的图表目录页"
+    }
+  ],
+  "_todo": [
+    "向学生索取《学位论文格式规范》原文（PDF/Word/网页截图均可）",
+    "把与表、图有关的条款逐条填进 table / figure，并在 source_clauses 里记条号",
+    "规范没写的字段保持当前值，并在回复里列出「采用默认」的项请学生确认",
+    "填写完成后把 status 改为 documented"
+  ],
+  "page": {
+    "size": "letter",
+    "margins_in": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "unspecified_defaults": [
+    "页面按 Letter 计算；学位论文几乎都用 A4，请按学校格式文件把 page.size 改成 a4"
+  ]
+}
