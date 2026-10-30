@@ -111,7 +111,7 @@ check each item against a real database.
 
 | Skill | In one line | Stage | Size |
 |---|---|---|---|
-| [`qualitative-research-methods`](qualitative-research-methods/) | Five qualitative traditions, coding and analysis, trustworthiness, Findings writing | **Qualitative** research | SKILL.md + 8 references |
+| [`qualitative-research-methods`](qualitative-research-methods/) | Method selection, five qualitative traditions, four approaches to thematic analysis, coding and analysis, trustworthiness, Findings writing | **Qualitative** research | SKILL.md + 11 references |
 | [`academic-citation-auditor`](academic-citation-auditor/) | Verify every reference; detect AI-hallucinated sources and misattributed citations | **Verification** | SKILL.md |
 | [`management-paper-reviewer`](management-paper-reviewer/) | Deep review of journal manuscripts: red-team attackers → blue-team rebuttal → fact-check | **Manuscript review** | SKILL.md |
 | [`grant-proposal-reviewer`](grant-proposal-reviewer/) | Review grant proposals; produce a candid committee version and a constructive applicant version | **Grant review** | SKILL.md |
@@ -176,7 +176,7 @@ Literature Review usually get drafted before data collection and revised afterwa
 - **Analysis done; need to write Results** → `stats-results-writer`
 - **Need APA tables, a conceptual or path diagram, or an audit of figures a student submitted** → `paper-figures-tables`
 - **Results written; unsure how to frame the contribution** → `discussion-conclusion-writer`
-- **Doing interviews or case studies** → `qualitative-research-methods`
+- **Doing interviews or case studies, or unsure which qualitative method fits** → `qualitative-research-methods`
 - **Citation self-check before submission** → `academic-citation-auditor`
 - **No idea which tier this paper can reach, or which journals to try** → `journal-submission`
 - **Want to know how your paper will be attacked** → `management-paper-reviewer`

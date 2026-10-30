@@ -100,7 +100,7 @@
 
 | 技能 | 一句话 | 覆盖环节 | 规模 |
 |---|---|---|---|
-| [`qualitative-research-methods`](qualitative-research-methods/) | 五种质性传统、编码分析、可信性核查、Findings 撰写 | **质性**研究 | SKILL.md + 8 个 references |
+| [`qualitative-research-methods`](qualitative-research-methods/) | 方法选择、五种质性传统、主题分析四种取向、编码分析、可信性核查、Findings 撰写 | **质性**研究 | SKILL.md + 11 个 references |
 | [`academic-citation-auditor`](academic-citation-auditor/) | 逐条核实参考文献真实性，识别 AI 幻觉文献与引用失实 | 学术**核查** | SKILL.md |
 | [`management-paper-reviewer`](management-paper-reviewer/) | 期刊论文深度评审：红队五攻击者 → 蓝队辩护 → 事实核查 | 论文**评审** | SKILL.md |
 | [`grant-proposal-reviewer`](grant-proposal-reviewer/) | 基金/项目申请书评审，产出委员会版与申请人版两份意见 | 基金**评审** | SKILL.md |
@@ -162,7 +162,7 @@
 - **跑完要写 Results** → `stats-results-writer`
 - **要把结果做成 APA 表、画概念框架或路径图、审学生交上来的图表** → `paper-figures-tables`
 - **结果写完了，不知道怎么讲贡献** → `discussion-conclusion-writer`
-- **做的是访谈/案例** → `qualitative-research-methods`
+- **做的是访谈/案例，或不确定该用哪种质性方法** → `qualitative-research-methods`
 - **论文定稿前自查引用** → `academic-citation-auditor`
 - **不知道这篇稿子能投什么档、投哪几本** → `journal-submission`
 - **想知道自己的论文会被怎么挑刺** → `management-paper-reviewer`
